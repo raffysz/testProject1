@@ -5,9 +5,8 @@
         <body>
             <p>
                 <?php
-                echo "Hello, World!";
-                echo "\n";
-                echo "Hello,"." "."World"."!";
+                echo "<p>Hello, World!</p>";
+                echo "<p>Hello,"." "."World"."!</p>";
                 ?>
             </p>
         </body>
