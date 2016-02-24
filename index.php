@@ -5,7 +5,7 @@
         <body>
             <p>
                 <?php
-                echo "Heelo World";
+                echo "Hello World";
                 ?>
             </p>
         </body>
