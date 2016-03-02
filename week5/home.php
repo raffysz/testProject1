@@ -7,11 +7,6 @@
 
 <body>
 <h1>Hello</h1>
-<?php
-
-echo  $username. "<br>";
-
-?>
 </body>
 </html>
 
