@@ -8,9 +8,8 @@
 <body>
 <h1>Hello</h1>
 <?php
-include("login.php");
 
-echo  Welcome $username. "<br>";
+echo  $username. "<br>";
 
 ?>
 </body>
