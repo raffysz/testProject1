@@ -10,7 +10,7 @@
 <?php
 include("login.php");
 
-echo $username. "<br>";
+echo  Welcome $username. "<br>";
 
 ?>
 </body>
