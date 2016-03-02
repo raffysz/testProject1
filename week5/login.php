@@ -17,15 +17,9 @@ if(empty($_POST["username"]) || empty($_POST["password"]))
     }else
     {
         echo $username. "<br>";
-        echo $password . "<br>";
+        echo $password. "<br>";
         echo "Incorrect username or password.";
     }
 }
 
 ?>
-/**
- * Created by PhpStorm.
- * User: 0907562
- * Date: 02/03/2016
- * Time: 15:26
- */

@@ -5,9 +5,3 @@ define('DB_PASSWORD', '8d620ab9');
 define('DB_DATABASE', 'raffaele0907562');
 $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 ?>
-/**
- * Created by PhpStorm.
- * User: 0907562
- * Date: 02/03/2016
- * Time: 15:20
- */
