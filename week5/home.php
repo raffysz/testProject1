@@ -6,7 +6,13 @@
 </head>
 
 <body>
-<h1>Hello $username</h1>
+<h1>Hello</h1>
+<?php
+include("login.php");
+
+echo $username. "<br>";
+
+?>
 </body>
 </html>
 
