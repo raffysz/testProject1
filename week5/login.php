@@ -16,6 +16,8 @@ if(empty($_POST["username"]) || empty($_POST["password"]))
         header("location: home.php"); //Redirecting to another page
     }else
     {
+        echo $username. "<br>";
+        echo $password . "<br>";
         echo "Incorrect username or password.";
     }
 }
