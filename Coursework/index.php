@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Bugjob Tracking System</title>
 </head>
 <body>
-<p>Welcome!</p>
+<!--START OF HEADER -->
+<header>
+
+</header>
+<!--END OF HEADER -->
+
+<!--START OF MAIN -->
+<main>
+
+</main>
+<!--END OF MAIN -->
+
+<!--START OF FOOTER -->
+<footer>
+
+</footer>
+<!--END OF FOOTER -->
 </body>
 </html>
-
-/**
- * Created by PhpStorm.
- * User: raffy
- * Date: 09/03/2016
- * Time: 11:45
- */
