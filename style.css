@@ -4,6 +4,7 @@ body {
 
 #title {
     font-family: Arial;
+    font-size: 100px;
     color: white;
     background-image: url(title.jpg);
 }
