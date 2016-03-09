@@ -8,7 +8,9 @@
 <body>
 <!--START OF HEADER -->
 <header>
-
+    <div id="title">
+        <p>BugJob Traking System</p>
+    </div>
 </header>
 <!--END OF HEADER -->
 

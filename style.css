@@ -1,3 +1,9 @@
 body {
     background-color: black;
 }
+
+#title {
+    font-family: Arial;
+    color: white;
+    background-image: url(title.jpg);
+}
