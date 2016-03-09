@@ -8,7 +8,7 @@ body {
     font-family: Arial;
     font-size: 30px;
     color: white;
-    text-align: center;
+    text-align: match-parent;
     background-image: url(title.jpg);
-    background-size: contain;
+    background-size: cover;
 }
