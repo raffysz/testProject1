@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bugjob Tracking System</title>
+    <title>BugJob Tracking System</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 <!--START OF HEADER -->
