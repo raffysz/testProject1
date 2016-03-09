@@ -1,6 +1,3 @@
 body {
-    background-color: transparentColor;
-    background-image: url("background.jpg");
-    background-repeat: repeat-x;
-
+    background-color: black;
 }
