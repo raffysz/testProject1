@@ -3,10 +3,11 @@ body {
 }
 
 #title {
-    width: 600px;
-    height: 300px;
+    width: 500px;
+    height: 100px;
     font-family: Arial;
     font-size: 30px;
     color: white;
     background-image: url(title.jpg);
+    background-size: auto;
 }
