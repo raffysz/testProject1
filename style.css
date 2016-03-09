@@ -1,5 +1,6 @@
 body {
+    background-color: transparentColor;
     background-image: url("background.jpg");
     background-repeat: repeat-x;
-    opacity: 50.0;
+
 }
