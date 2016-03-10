@@ -1,27 +1,38 @@
-body {
-    background-color: black;
-    mrgin: 0;
-    width: 90%;
-    clear: both;
+.body {
+    background-color: darkslategrey;
+    font-size: 85%;
+    font-family: Arial, "Lucida Sans Unicode";
+    line-height: 1.5;
+    text-align: center;
 }
 
 .header {
     display: inline;
 }
 
-#title {
-    width: 500px;
+.header p {
+    width: 550px;
     height: 80px;
-    font-family: Arial;
     font-size: 50px;
+    text-shadow: midnightblue 5px 5px 5px;
     color: white;
     text-align: left;
-    float: inherit;
+    display: inline;
+
+
 }
 
-#logo {
+.header img {
     width:400px;
     height: 80px;
-    alignment: right;
+    display: inline;
+    float: inherit;
+    margin: 2%;
+    border-radius: 9px;
+    box-shadow: 10px 10px 10px green;
+
+}
+
+.header li {
     display: inline;
 }
