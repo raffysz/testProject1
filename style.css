@@ -1,18 +1,23 @@
 body {
     background-color: black;
+    mrgin: 0;
+    width: 90%;
+    clear: both;
 }
 
 #title {
-    width: 400px;
+    width: 500px;
     height: 80px;
     font-family: Arial;
     font-size: 50px;
     color: white;
     text-align: left;
+    display: inline;
 }
 
 #logo {
     width:400px;
     height: 80px;
     alignment: right;
+    float: inherit;
 }
