@@ -45,18 +45,34 @@ h1 {
 }
 
 .footer div {
-    width: 450px;
+    width: 900px;
     height: 60px;
-    font-size: 15px;
-    color: white;
     text-align: center;
     display: inline;
+
+}
+
+.footer img{
+    width: 45px;
+    height: 45px;
+    display: inline;
+    clear: both;
+    text-align: match-parent;
+    float: inherit;
 }
 
 .footer nav {
-    width:450px;
+    width:600px;
     height: 60px;
+    clear: both;
     display: inline;
-    text-align: center;
     margin: 2%;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bolder;
+    text-shadow: black 6px 6px 6px;
+    color: white;
+    display: inline;
 }
