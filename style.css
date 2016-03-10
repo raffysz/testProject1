@@ -26,7 +26,7 @@ h1 {
 
 .header img {
     width:450px;
-    height: 80px;
+    height: auto;
     display: inline;
     float: inherit;
     border-radius: 9px;
@@ -44,17 +44,10 @@ h1 {
     height: auto;
 }
 
-.footer div {
-    width: 900px;
-    height: 60px;
-    text-align: center;
-    display: inline;
-
-}
-
 .footer img{
     width: 45px;
     height: 45px;
+
     display: inline;
     clear: both;
     text-align: match-parent;

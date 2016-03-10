@@ -32,14 +32,14 @@
 <!--START OF FOOTER -->
 <footer class="footer" style="text-align: center">
 
-    <div>
+    <h2 style="vertical-align:middle">Connect with Us</h2>
 
-        <h2 style="vertical-align:middle">Connect with Us</h2>
-        <img style="vertical-align:middle" src="images/rgulogo.jpg" alt="RGU Logo"/>
-        <img style="vertical-align:middle" src="images/facebooklogo.jpg" alt="Facebook Logo"/>
-        <img style="vertical-align:middle" src="images/twitterlogo.jpg" alt="Twitter Logo"/>
-
-    </div>
+    <a  href="http://www.rgu.ac.uk">
+        <img style="vertical-align:middle" src="images/rgulogo.jpg" alt="RGU Logo" ></a>
+    <a href="https://www.facebook.com/robertgordonuniversity">
+        <img style="vertical-align:middle" src="images/facebooklogo.jpg" alt="Facebook Logo" ></a>
+    <a href="https://twitter.com/RobertGordonUni?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+        <img style="vertical-align:middle" src="images/twitterlogo.jpg" alt="Twitter Logo" ></a>
 
     <nav>
 
