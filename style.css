@@ -13,11 +13,13 @@ body {
     color: white;
     text-align: left;
     display: inline;
+    float: inherit;
 }
 
 #logo {
     width:400px;
     height: 80px;
     alignment: right;
+    display: inline;
     float: inherit;
 }
