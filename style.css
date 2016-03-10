@@ -7,32 +7,61 @@ body {
 
 .header {
     display: inline;
+    top: 20px;
+    position: relative;
 }
 
-.header p {
-    width: 550px;
+h1 {
+    width: 450px;
     height: 80px;
     font-size: 60px;
     font-weight: bolder;
     text-shadow: black 6px 6px 6px;
     color: white;
-    text-align: left;
+    text-align: center;
     display: inline;
 
 
 }
 
 .header img {
-    width:400px;
+    width:450px;
     height: 80px;
     display: inline;
     float: inherit;
-    margin: 2%;
     border-radius: 9px;
     box-shadow: black 5px 5px 5px;
+    text-align: center;
+    margin: 2%;
 
 }
 
 .header li {
     display: inline;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    clear: both;
+    bottom: 20px;
+    width:100%;
+    height: auto;
+}
+
+.footer div {
+    width: 450px;
+    height: 60px;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    display: inline;
+}
+
+.footer nav {
+    width:450px;
+    height: 60px;
+    display: inline;
+    text-align: center;
+    margin: 2%;
 }
