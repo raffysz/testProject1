@@ -1,9 +1,22 @@
-.body {
-    background-color: darkslategrey;
-    font-size: 85%;
-    font-family: Arial, "Lucida Sans Unicode";
+body {
+    font-family: "Times New Roman";
     line-height: 1.5;
     text-align: center;
+}
+
+#background-image {
+    background-image: url('background.png');
+    opacity:0.6;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:0;
+}
+#content {
+    z-index:1;
+    position:relative;
 }
 
 .header {
@@ -13,8 +26,9 @@
 .header p {
     width: 550px;
     height: 80px;
-    font-size: 50px;
-    text-shadow: midnightblue 5px 5px 5px;
+    font-size: 60px;
+    font-weight: bolder;
+    text-shadow: black 6px 6px 6px;
     color: white;
     text-align: left;
     display: inline;
@@ -29,7 +43,7 @@
     float: inherit;
     margin: 2%;
     border-radius: 9px;
-    box-shadow: 10px 10px 10px green;
+    box-shadow: midnightblue 5px 5px 5px;
 
 }
 
