@@ -1,23 +1,8 @@
 body {
     font-family: "Times New Roman";
-    background-color: inherit;
+    background-color: silver;
     line-height: 1.5;
     text-align: center;
-}
-
-#background-image {
-    background-image: url('background.png');
-    opacity:0.6;
-    position: absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    z-index:0;
-}
-#content {
-    z-index:1;
-    position:relative;
 }
 
 .header {
