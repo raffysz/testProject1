@@ -3,15 +3,16 @@ body {
 }
 
 #title {
-    width: 600px;
-    height: 100px;
+    width: 400px;
+    height: 80px;
     font-family: Arial;
     font-size: 50px;
     color: white;
-    text-align: inherit;
+    text-align: left;
 }
 
 #logo {
-    width:500px;
-    height: 200px;
+    width:400px;
+    height: 80px;
+    alignment: right;
 }
