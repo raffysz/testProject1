@@ -20,16 +20,6 @@
     <h1 style="vertical-align:middle">Job Traking System</h1>
     <img style="vertical-align:middle" src="images/Robert-Gordon-University-logo.jpg" alt="Bug & Job Logo"/>
 
-    <nav id="navigationheader">
-
-        <p>
-            <a href ="#">Home</a> |
-            <a href ="#">New User</a> |
-            <a href ="#">Login</a>
-        </p>
-
-    </nav>
-
 </header>
 <!--END OF HEADER -->
 
@@ -54,6 +44,7 @@
     <nav>
 
         <p>
+            <a href ="#">Home</a> |
             <a href ="#">About</a> |
             <a href ="#">Useful Links</a> |
             <a href ="#">Copyright ©2016</a>
