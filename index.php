@@ -44,7 +44,7 @@
     <nav>
 
         <p>
-            <a href ="#">Home</a> |
+            <a href ="index.php">Home</a> |
             <a href ="#">About</a> |
             <a href ="#">Useful Links</a> |
             <a href ="#">Copyright ©2016</a>
