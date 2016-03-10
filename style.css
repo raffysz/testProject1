@@ -9,6 +9,9 @@ body {
     font-size: 50px;
     color: white;
     text-align: inherit;
-    background-image: url(title.jpg);
-    background-size: cover;
+}
+
+#logo {
+    width: 50%;
+    height: 25%;
 }
