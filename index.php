@@ -12,7 +12,7 @@
         <p>BugJob Traking System</p>
     </div>
 
-    <img id="logo" src="title.jpg" alt="Bug & Job Logo"/>
+    <img id="logo" src="logo.jpg" alt="Bug & Job Logo"/>
 
     <div id="navmenu">
         <li><a href ="#">Home</a></li>
