@@ -5,6 +5,10 @@ body {
     clear: both;
 }
 
+.header {
+    display: inline;
+}
+
 #title {
     width: 500px;
     height: 80px;
