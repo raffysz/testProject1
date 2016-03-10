@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BugJob Tracking System</title>
+    <title>Bug & Job Tracking System</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -10,6 +10,13 @@
 <header>
     <div id="title">
         <p>BugJob Traking System</p>
+    </div>
+
+    <img id="logo" src="title.jpg" alt="Bug & Job Logo"/>
+
+    <div id="navmenu">
+        <li><a href ="#">Home</a></li>
+        <li><a href ="#">About</a></li>
     </div>
 </header>
 <!--END OF HEADER -->
