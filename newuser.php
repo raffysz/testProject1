@@ -128,10 +128,6 @@
             <input type="submit" value="Submit Form"> </p>
     </form>
 
-    <p> </p>
-    <p> </p>
-    <p> </p>
-
 </main>
 <!--END OF MAIN -->
 
