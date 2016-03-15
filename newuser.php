@@ -59,23 +59,6 @@
         }
         else{$errors[] = 'Enter your password.';}
 
-        if (empty($errors)) {
-            $q = "SELECT uid FROM users WHERE username='$username'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r) != 0) {
-                $errors[] = 'Username already in use';
-            }
-        }
-
-        if (empty($errors)) {
-            $q = "SELECT uid FROM users WHERE email='$email'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r) != 0) {
-                $errors[] = 'Email address already registered.
-        <a href="login.php">login</a>';
-            }
-        }
-
         if (empty($errors))
         {$q = "INSERT INTO users (username, email, phonex, passwd)
         VALUES ('$username','$email','$phonex',SHA1('$passwd'))";
