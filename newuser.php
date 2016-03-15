@@ -68,6 +68,13 @@
         }
 
         if (empty($errors))
+        {$q = "SELECT uid FROM users WHERE user_name='$user_name'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r)!=0)
+            {$errors[] = 'Username already in use, please select another';}
+        }
+
+        if (empty($errors))
         {
             $q = "INSERT INTO users
         (user_name, email, phonex, passwd)
