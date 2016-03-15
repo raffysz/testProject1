@@ -60,10 +60,20 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {$q = "INSERT INTO users (usernm, email, phonex, passwd)
-        VALUES ('$un', '$email','$phonex',SHA1('$passwd'))";
-        $r = mysqli_query ($db,$q);
-        if ($r)
+        {$q = "SELECT uid FROM users WHERE email='$email'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r)!=0)
+            {$errors[] = 'Email address already registered.
+            <a href="login.php">Login</a>';}
+        }
+
+        if (empty($errors))
+        {
+            $q = "INSERT INTO users
+        (user_name, email, phonex, passwd)
+        VALUES ('$un','$email','$phonex','$passwd',NOW())";
+            $r = mysqli_query ($db, $q);
+            if ($r)
         {echo '<h1>Form submitted successfully!</h1>
         <p>Your request of registration is now pending, an e-mail will inform you of any changes.</p>
         <p>For any iformation please contact the database administrator.</p>
