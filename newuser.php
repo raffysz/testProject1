@@ -68,7 +68,7 @@
             }
         }
         if (empty($errors)) {
-            $q = "SELECT uid FROM users WHERE uid='$userid'";
+            $q = "SELECT uid FROM users WHERE username='$username'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) != 0) {
                 $errors[] = 'Username already in use';
