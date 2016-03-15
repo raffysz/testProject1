@@ -133,7 +133,9 @@
 
 <!--START OF FOOTER -->
 <footer class="footer" style="text-align: center">
-
+    <p> </p>
+    <p> </p>
+    <p> </p>
     <h2 style="vertical-align:middle">Connect with Us</h2>
 
     <a  href="http://www.rgu.ac.uk">
