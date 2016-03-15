@@ -35,7 +35,7 @@
         if (empty ($_POST['username']))
         {$errors[] = 'Enter a username.';}
         else
-        {$userid = mysqli_real_escape_string($db,
+        {$email = mysqli_real_escape_string($db,
             trim($_POST['username']));}
 
         if (empty ($_POST['email']))
@@ -77,7 +77,7 @@
         }
 
         if (empty($errors))
-        {$q = "INSERT INTO users (username, passwd, email, phonex)
+        {$q = "INSERT INTO users (username, email, phonex, passwd)
         VALUES ('$username',SHA1('$passwd'),'$email','$phonex')";
         $r = mysqli_query ($db,$q);
         if ($r)
