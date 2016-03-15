@@ -60,12 +60,6 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {
-            $q = "SELECT uid FROM users WHERE usernm='$usernm''";
-            $r = mysqli_query ($db, $q);
-            if (mysqli_num_rows($r) !=0)
-            {$errors[] = 'Username already in use please select a different one';}
-        }
 
         if (empty($errors))
         {$q = "INSERT INTO users (usernm, email, phonex, passwd)
