@@ -60,8 +60,6 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-
-        if (empty($errors))
         {$q = "INSERT INTO users (usernm, email, phonex, passwd)
         VALUES ('$usernm','$email','$phonex',SHA1('$passwd'))";
         $r = mysqli_query ($db,$q);
