@@ -32,11 +32,11 @@
         require ('db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['usernm']))
+        if (empty ($_POST['user_name']))
         {$errors[] = 'Enter a username.';}
         else
-        {$email = mysqli_real_escape_string($db,
-            trim($_POST['usernm']));}
+        {$un = mysqli_real_escape_string($db,
+            trim($_POST['user_name']));}
 
         if (empty ($_POST['email']))
         {$errors[] = 'Enter your e-mail address.';}
@@ -61,7 +61,7 @@
 
         if (empty($errors))
         {$q = "INSERT INTO users (usernm, email, phonex, passwd)
-        VALUES ('$usernm', '$email','$phonex',SHA1('$passwd'))";
+        VALUES ('$un', '$email','$phonex',SHA1('$passwd'))";
         $r = mysqli_query ($db,$q);
         if ($r)
         {echo '<h1>Form submitted successfully!</h1>
@@ -89,9 +89,9 @@
     <h1>New User Form</h1>
     <form action="newuser.php" method="POST">
             <p>
-                Username:   <input type="text" name="usernm"
-                                         value="<?php if (isset($_POST['usernm']))
-                                             echo $_POST['usernm'];?>">
+                Username:   <input type="text" name="user_name"
+                                         value="<?php if (isset($_POST['user_name']))
+                                             echo $_POST['user_name'];?>">
             </p> <p>
             E-mail Address:   <input type="text" name="email"
                                value="<?php if (isset($_POST['email']))
