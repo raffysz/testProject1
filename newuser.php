@@ -29,7 +29,7 @@
     <?php
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
-        include ('db_connect/connection.php');
+        require ('db_connect/connection.php');
         $errors = array();
 
         if (empty ($_POST['username']))
