@@ -67,16 +67,10 @@
         <a href="login.php">login</a>';
             }
         }
-        if (empty($errors)) {
-            $q = "SELECT uid FROM users WHERE username='$username'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r) != 0) {
-                $errors[] = 'Username already in use';
-            }
-        }
+
         if (empty($errors))
         {$q = "INSERT INTO users (username, passwd, email, phonex)
-        VALUES ('$username',SHA1('$passwd'),'$email','$phonex', NOW())";
+        VALUES ('$username',SHA1('$passwd'),'$email','$phonex')";
         $r = mysqli_query ($db,$q);
         if ($r)
         {echo '<h1>Form submitted successfully!</h1>
