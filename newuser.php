@@ -106,9 +106,9 @@
     <h1>New User Form</h1>
     <form action="newuser.php" method="POST">
             <p>
-            Username:   <input type="text" name="username"
-                               value="<?php if (isset($_POST['username']))
-                                echo $_POST['username'];?>">
+                Username:   <input type="text" name="username"
+                                         value="<?php if (isset($_POST['username']))
+                                             echo $_POST['username'];?>">
             </p> <p>
             E-mail Address:   <input type="text" name="email"
                                value="<?php if (isset($_POST['email']))
