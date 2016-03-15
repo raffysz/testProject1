@@ -60,18 +60,10 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {$q = "SELECT uid FROM users WHERE email='$email'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Email address already registered.
-            <a href="login.php">Login</a>';}
-        }
-
-        if (empty($errors))
         {$q = "SELECT uid FROM users WHERE user_name='$user_name'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Username already in use, please select another';}
+            {$errors[] = 'Username already in use, please select another.';}
         }
 
         if (empty($errors))
