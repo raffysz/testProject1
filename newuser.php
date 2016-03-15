@@ -71,7 +71,7 @@
         {
             $q = "INSERT INTO users
         (user_name, email, phonex, passwd)
-        VALUES ('$un','$email','$phonex','$passwd')";
+        VALUES ('$un','$email','$phonex',SHA1('$passwd'))";
             $r = mysqli_query ($db, $q);
             if ($r)
         {echo '<h1>Form submitted successfully!</h1>
