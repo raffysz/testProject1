@@ -59,19 +59,21 @@
         }
         else{$errors[] = 'Enter your password.';}
 
-        if (empty($errors))
-        {$q = "SELECT uid FROM users WHERE email='$email'";
-        $r = mysqli_query($db,$q);
-        if (mysqli_num_rows($r)!=0)
-        {$errors[] = 'Email address already registered.
-        <a href="login.php">login</a>';}
-
-        if (empty($errors))
-        {$q = "SELECT uid FROM users WHERE uid='$userid'";
-        $r = mysqli_query($db,$q);
-        if (mysqli_num_rows($r)!=0)
-        {$errors[] = 'Username already in use';}
-
+        if (empty($errors)) {
+            $q = "SELECT uid FROM users WHERE email='$email'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) != 0) {
+                $errors[] = 'Email address already registered.
+        <a href="login.php">login</a>';
+            }
+        }
+        if (empty($errors)) {
+            $q = "SELECT uid FROM users WHERE uid='$userid'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) != 0) {
+                $errors[] = 'Username already in use';
+            }
+        }
         if (empty($errors))
         {$q = "INSERT INTO users (username, passwd, email, phonex)
         VALUES ('$username',SHA1('$passwd'),'$email','$phonex', NOW())";
@@ -85,7 +87,7 @@
         mysqli_close($db);
         exit();
         }
-
+            else
             {
                 echo '<h1>Error!</h1>
                 <p id="errmsg">The following error(S) occurred:<br>';
@@ -96,8 +98,6 @@
                 echo 'Please try again.</p>';
                 mysqli_close ($db);
             }
-            }
-        }
     }
     ?>
 
