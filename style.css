@@ -11,7 +11,7 @@ body {
     position: relative;
 }
 
-h1 {
+.header h1 {
     width: 450px;
     height: 80px;
     font-size: 60px;
