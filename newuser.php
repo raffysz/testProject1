@@ -61,7 +61,7 @@
 
         if (empty($errors))
         {$q = "INSERT INTO users (usernm, email, phonex, passwd)
-        VALUES ('$usernm','$email','$phonex',SHA1('$passwd'))";
+        VALUES ('$usernm', '$email','$phonex',SHA1('$passwd'))";
         $r = mysqli_query ($db,$q);
         if ($r)
         {echo '<h1>Form submitted successfully!</h1>
