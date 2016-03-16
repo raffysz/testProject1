@@ -40,7 +40,7 @@
 <p id='logged'>You are now logged in as
 {$_SESSION['username']},{$_SESSION['email']}
 </p>
-<p>Please select one of the following options:</p>";
+<p id='logged'>Please select one of the following options:</p>";
 
     echo "
     <form action=\"../pages/submitbug.php\">

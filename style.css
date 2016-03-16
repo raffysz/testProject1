@@ -100,5 +100,9 @@ h2 {
 }
 
 #logged {
-    font-size: 15px;
+    font-size: 20px;
+}
+
+form {
+    padding: 5px 0px 5px 0px;
 }
