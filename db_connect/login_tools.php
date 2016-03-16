@@ -36,7 +36,8 @@ function validate($db, $usern ='', $pwd='')
 
     if (empty($errors))
     {
-        $q = "SELECT uid, user_name, email FROM users WHERE user_name='$un' AND psswd=SHA1('$passwd')";
+
+        $q = "SELECT uid, user_name, email FROM users WHERE user_name='$un' AND passwd=SHA1('$passwd')";
         $r = mysqli_query ($db, $q);
         var_dump($r);
         if (mysqli_num_rows($r)==1)
