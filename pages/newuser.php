@@ -91,7 +91,7 @@
         }
             else
             {
-                echo '<h1>Error!</h1>
+                echo '<h1 id="errmsg">Error!</h1>
                 <p id="errmsg">The following error(S) occurred:<br>';
                 foreach ($errors as $msg)
                 {

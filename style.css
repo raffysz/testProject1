@@ -37,7 +37,15 @@ body {
 }
 
 main{
-    padding: 30px 0px 30px 0px
+    padding: 30px 0px 30px 0px;
+}
+
+.mainindex form {
+    padding: 15px 0px 15px 0px;
+}
+
+input {
+    border-radius: 5px;
 }
 
 .footer {
@@ -74,3 +82,8 @@ h2 {
     color: white;
     display: inline;
 }
+
+#errmsg {
+    color: red;
+}
+
