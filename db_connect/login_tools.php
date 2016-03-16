@@ -33,11 +33,11 @@ function validate($db, $user ='', $pwd='')
     {
         $passwd = mysqli_real_escape_string($db, trim($pwd));
     }
-
+    var_dump($errors);
     if (empty($errors))
 
-        var_dump($errors);
-        $q = "SELECT userID FROM users WHERE username='$usn' AND password=SHA1('$passwd')";
+
+        $q = "SELECT userID, username, email FROM users WHERE username='$usn' AND password=SHA1('$passwd')";
         $r = mysqli_query ($db, $q);
 
         if (mysqli_num_rows($r)==1)
