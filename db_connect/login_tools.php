@@ -37,7 +37,7 @@ function validate($db, $user ='', $pwd='')
     if (empty($errors))
 
         var_dump($errors);
-        $q = "SELECT userID, username, email FROM users WHERE username='$usn'";
+        $q = "SELECT userID FROM users WHERE username='$usn' AND password=SHA1('$passwd')";
         $r = mysqli_query ($db, $q);
 
         if (mysqli_num_rows($r)==1)
@@ -47,10 +47,9 @@ function validate($db, $user ='', $pwd='')
         }
         else
         {
-            {var_dump($r);
             $errors[] = 'Username and/or password incorrect, please try again!.';
         }
-    }
+
 
     return array (false, $errors);
 }
