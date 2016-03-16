@@ -30,7 +30,7 @@
 
     session_start();
 
-    if (!isset($_SESSION['user_name']))
+    if (!isset($_SESSION['username']))
     {
         require ('../db_connect/login_tools.php');
         load();
