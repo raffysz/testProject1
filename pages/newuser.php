@@ -62,7 +62,7 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {$q = "SELECT userID FROM users WHERE username='$user'";
+        {$q = "SELECT userID FROM users WHERE username='$username'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
             {$errors[] = 'Username already in use, please select another.';}
@@ -80,7 +80,7 @@
         {
             $q = "INSERT INTO users
         (username, password, email, phone)
-        VALUES ('$user',SHA1('$passwd'),'$email','$phone')";
+        VALUES ('$username',SHA1('$passwd'),'$email','$phone')";
             $r = mysqli_query ($db, $q);
             if ($r)
         {echo '<h1>Form submitted successfully!</h1>
