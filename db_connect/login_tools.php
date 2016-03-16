@@ -12,26 +12,26 @@ function load($page='../pages/login.php')
     exit();
 }
 
-function validate($db, $un =", $passwd=")
+function validate($db, $usern =", $pwd=")
 {
     $errors = array();
 
-    if (empty($un))
+    if (empty($usern))
     {
         $errors[]='Enter your username.';
     }
     else
     {
-        $un = mysqli_real_escape_string($db, trim($un));
+        $un = mysqli_real_escape_string($db, trim($usern));
     }
 
-    if (empty($passwd))
+    if (empty($pwd))
     {
         $errors[] = 'Enter your password.';
     }
     else
     {
-        $passwd = mysqli_real_escape_string($db, trim($passwd));
+        $passwd = mysqli_real_escape_string($db, trim($pwd));
     }
 
     if (empty($errors))
