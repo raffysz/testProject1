@@ -26,7 +26,22 @@
 <!--START OF MAIN -->
 <main>
 
-    <h1>Welcome in</h1>
+    <?php
+
+session_start();
+
+if (!isset($_SESSION['user_name']))
+{
+    require ('../db_connect/login_tools.php');
+    load();
+}
+
+echo "<h1>Welcome</h1>
+<p>You are now logged in,
+{$_SESSION['user_name']},{$_SESSION['email']}
+</p>";
+
+?>
 
 </main>
 <!--END OF MAIN -->
