@@ -100,13 +100,17 @@ h2 {
 }
 
 .container {
-    width: 400px;
+    width: 50%;
     overflow: hidden;
     padding: 10px;
 }
 
-.input {
+.text {
     float: left;
+}
+
+.input {
+    float: inherit;
 }
 
 .submit {

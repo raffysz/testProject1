@@ -107,22 +107,22 @@
     <div class="container">
     <form action="newuser.php" method="POST">
             <p class="input">
-                Username:   <input type="text" name="username"
+                Username:   <input class="input" type="text" name="username"
                                          value="<?php if (isset($_POST['username']))
                                              echo $_POST['username'];?>">
-            </p> <p class="input">
+            </p> <p class="text">
             E-mail Address:   <input type="text" name="email"
                                value="<?php if (isset($_POST['email']))
                                    echo $_POST['email'];?>">
-            </p> <p class="input">
+            </p> <p class="text">
             Phone Extension (max. 9 digits):   <input type="text" name="phone"
                                value="<?php if (isset($_POST['phone']))
                                    echo $_POST['phone'];?>">
-            </p> <p class="input">
+            </p> <p class="text">
             Choose a password:   <input type="text" name="passwd1"
                                value="<?php if (isset($_POST['passwd1']))
                                    echo $_POST['passwd1'];?>">
-            </p> <p class="input">
+            </p> <p class="text">
             Confirm Password:   <input type="text" name="passwd2"
                                value="<?php if (isset($_POST['passwd2']))
                                    echo $_POST['passwd2'];?>">
