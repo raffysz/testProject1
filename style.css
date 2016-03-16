@@ -3,6 +3,7 @@ body {
     background-color: silver;
     line-height: 1.5;
     text-align: center;
+    font-size: 20px;
 }
 
 a {
@@ -52,6 +53,10 @@ main{
     padding: 30px 0px 30px 0px;
 }
 
+.mainindex p {
+    font-size: 20px;
+}
+
 .mainindex form {
     padding: 15px 0px 15px 0px;
 }
@@ -85,6 +90,10 @@ input {
     clear: both;
     display: inline;
     margin: 2%;
+}
+
+.footer p{
+    font-size: 15px;
 }
 
 h2 {
