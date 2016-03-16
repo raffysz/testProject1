@@ -37,9 +37,19 @@
     }
 
     echo "<h1>Welcome</h1>
-<p>You are now logged in,
+<p>You are now logged in as
 {$_SESSION['username']},{$_SESSION['email']}
-</p>";
+</p>
+<p>Please select one of the following options:</p>";
+
+    echo "
+    <form action=\"pages/login.php\">
+        <input type=\"submit\" value=\"Login\">
+    </form>
+
+    <form action=\"pages/newuser.php\">
+        <input type=\"submit\" value=\"Register\">
+    </form>"
 
     ?>
 
