@@ -65,7 +65,7 @@
         {$q = "SELECT userID FROM users WHERE username='$username'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Username already in use, please select another.';}
+            {$errors[] = 'Username already in use.';}
         }
 
         if (empty($errors))
