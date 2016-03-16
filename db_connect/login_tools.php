@@ -31,13 +31,13 @@ function validate($db, $user ='', $pwd='')
     }
     else
     {
-        $passwd = mysqli_real_escape_string($db, trim($pwd));
+        $password = mysqli_real_escape_string($db, trim($pwd));
     }
 
     if (empty($errors))
     {
 
-        $q = "SELECT userID, username, email FROM users WHERE username='$username' AND password=SHA1('$passwd')";
+        $q = "SELECT userID, username, email FROM users WHERE username='$username' AND password=SHA1('$password')";
         $r = mysqli_query ($db, $q);
         var_dump($r);
         if (mysqli_num_rows($r)==1)

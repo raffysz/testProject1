@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     require ('../db_connect/login_tools.php');
 
     list ($check, $data) =
-        validate ($db, $_POST['user'], $_POST['passwd']);
+        validate ($db, $_POST['username'], $_POST['password']);
 
     if ($check)
     {
