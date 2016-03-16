@@ -114,7 +114,7 @@
                                value="<?php if (isset($_POST['email']))
                                    echo $_POST['email'];?>">
             </p> <p>
-            Phone Extension:   <input type="text" name="phone"
+            Phone Extension (max. 9 digits):   <input type="text" name="phone"
                                value="<?php if (isset($_POST['phone']))
                                    echo $_POST['phone'];?>">
             </p> <p>
