@@ -12,7 +12,7 @@ function load($page='../pages/login.php')
     exit();
 }
 
-function validate($db, $usern =", $pwd=")
+function validate($db, $usern ='', $pwd='')
 {
     $errors = array();
 
