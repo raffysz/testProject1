@@ -103,33 +103,32 @@
     }
     ?>
 
-    <h1>New User Form</h1>
-    <div class="container">
+    <h1>New User Registration Form</h1>
+
     <form action="newuser.php" method="POST">
-            <p class="input">
-                Username:   <input class="input" type="text" name="username"
+            <p>
+                Username:   <input type="text" name="username"
                                          value="<?php if (isset($_POST['username']))
                                              echo $_POST['username'];?>">
-            </p> <p class="text">
+            </p> <p>
             E-mail Address:   <input type="text" name="email"
                                value="<?php if (isset($_POST['email']))
                                    echo $_POST['email'];?>">
-            </p> <p class="text">
+            </p> <p>
             Phone Extension (max. 9 digits):   <input type="text" name="phone"
                                value="<?php if (isset($_POST['phone']))
                                    echo $_POST['phone'];?>">
-            </p> <p class="text">
+            </p> <p>
             Choose a password:   <input type="text" name="passwd1"
                                value="<?php if (isset($_POST['passwd1']))
                                    echo $_POST['passwd1'];?>">
-            </p> <p class="text">
+            </p> <p>
             Confirm Password:   <input type="text" name="passwd2"
                                value="<?php if (isset($_POST['passwd2']))
                                    echo $_POST['passwd2'];?>">
-            </p> <p class="submit">
+            </p> <p>
             <input type="submit" value="Submit Form"> </p>
     </form>
-    </div>
 
 </main>
 <!--END OF MAIN -->

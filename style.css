@@ -98,21 +98,3 @@ h2 {
 #errmsg {
     color: red;
 }
-
-.container {
-    width: 50%;
-    overflow: hidden;
-    padding: 10px;
-}
-
-.text {
-    float: left;
-}
-
-.input {
-    float: right;
-}
-
-.submit {
-float: right;
-}
