@@ -6,7 +6,7 @@
 
     <title>Bug & Job Tracking System</title>
 
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -18,7 +18,7 @@
 <header class="header">
 
     <h1 style="vertical-align:middle">Job Traking System</h1>
-    <img style="vertical-align:middle" src="images/Robert-Gordon-University-logo.jpg" alt="Bug & Job Logo"/>
+    <img style="vertical-align:middle" src="../images/Robert-Gordon-University-logo.jpg" alt="Bug & Job Logo"/>
 
 </header>
 <!--END OF HEADER -->
@@ -31,7 +31,7 @@
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
-        require ('db_connect/connection.php');
+        require('db_connect/connection.php');
         $errors = array();
 
         if (empty ($_POST['user_name']))
@@ -86,7 +86,7 @@
         {echo '<h1>Form submitted successfully!</h1>
         <p>Your request of registration is now pending, an e-mail will inform you of any changes.</p>
         <p>For any iformation please contact the database administrator.</p>
-        <p><a href="index.html">Home</a>   <a href="login.php">Login</a></p>';
+        <p><a href="../index.html">Home</a>   <a href="login.php">Login</a></p>';
         }
         mysqli_close($db);
         exit();
@@ -140,16 +140,16 @@
     <h2 style="vertical-align:middle">Connect with Us</h2>
 
     <a  href="http://www.rgu.ac.uk">
-        <img style="vertical-align:middle" src="images/rgulogo.jpg" alt="RGU Logo" ></a>
+        <img style="vertical-align:middle" src="../images/rgulogo.jpg" alt="RGU Logo" ></a>
     <a href="https://www.facebook.com/robertgordonuniversity">
-        <img style="vertical-align:middle" src="images/facebooklogo.jpg" alt="Facebook Logo" ></a>
+        <img style="vertical-align:middle" src="../images/facebooklogo.jpg" alt="Facebook Logo" ></a>
     <a href="https://twitter.com/RobertGordonUni?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-        <img style="vertical-align:middle" src="images/twitterlogo.jpg" alt="Twitter Logo" ></a>
+        <img style="vertical-align:middle" src="../images/twitterlogo.jpg" alt="Twitter Logo" ></a>
 
     <nav>
 
         <p>
-            <a href ="index.html">Home</a> |
+            <a href ="../index.html">Home</a> |
             <a href ="#">About</a> |
             <a href ="#">Useful Links</a> |
             <a href ="#">Copyright ©2016</a>
