@@ -24,7 +24,7 @@
 <!--END OF HEADER -->
 
 <!--START OF MAIN -->
-<main>
+<main class="mainindex">
 
     <?php
 
@@ -43,11 +43,19 @@
 <p>Please select one of the following options:</p>";
 
     echo "
-    <form action=\"pages/login.php\">
+    <form action=\"../pages/submitbug.php\">
         <input type=\"submit\" value=\"Login\">
     </form>
 
-    <form action=\"pages/newuser.php\">
+    <form action=\"../pages/retrievebug.php\">
+        <input type=\"submit\" value=\"Register\">
+    </form>
+
+      <form action=\"../pages/upload.php\">
+        <input type=\"submit\" value=\"Login\">
+    </form>
+
+    <form action=\"../pages/logout.php\">
         <input type=\"submit\" value=\"Register\">
     </form>"
 
