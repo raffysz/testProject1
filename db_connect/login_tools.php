@@ -12,17 +12,17 @@ function load($page='../pages/login.php')
     exit();
 }
 
-function validate($db, $usern ='', $pwd='')
+function validate($db, $user ='', $pwd='')
 {
     $errors = array();
 
-    if (empty($usern))
+    if (empty($user))
     {
         $errors[]='Enter your username.';
     }
     else
     {
-        $un = mysqli_real_escape_string($db, trim($usern));
+        $username = mysqli_real_escape_string($db, trim($user));
     }
 
     if (empty($pwd))
@@ -37,7 +37,7 @@ function validate($db, $usern ='', $pwd='')
     if (empty($errors))
     {
 
-        $q = "SELECT uid, user_name, email FROM users WHERE user_name='$un' AND passwd=SHA1('$passwd')";
+        $q = "SELECT userID, username, email FROM users WHERE username='$username' AND password=SHA1('$passwd')";
         $r = mysqli_query ($db, $q);
         var_dump($r);
         if (mysqli_num_rows($r)==1)

@@ -7,14 +7,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     require ('../db_connect/login_tools.php');
 
     list ($check, $data) =
-        validate ($db, $_POST['un'], $_POST['passwd']);
+        validate ($db, $_POST['user'], $_POST['passwd']);
 
     if ($check)
     {
         session_start();
 
-        $_SESSION['uid']=$data['uid'];
-        $_SESSION['user_name']=$data['user_name'];
+        $_SESSION['userID']=$data['userID'];
+        $_SESSION['username']=$data['username'];
         $_SESSION['email']=$data['email'];
 
         load ('../pages/loggedin.php');

@@ -38,7 +38,7 @@
 
     echo "<h1>Welcome</h1>
 <p>You are now logged in,
-{$_SESSION['user_name']},{$_SESSION['email']}
+{$_SESSION['username']},{$_SESSION['email']}
 </p>";
 
     ?>

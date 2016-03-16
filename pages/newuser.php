@@ -34,11 +34,11 @@
         require('../db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['user_name']))
+        if (empty ($_POST['username']))
         {$errors[] = 'Enter a username.';}
         else
-        {$un = mysqli_real_escape_string($db,
-            trim($_POST['user_name']));}
+        {$user = mysqli_real_escape_string($db,
+            trim($_POST['username']));}
 
         if (empty ($_POST['email']))
         {$errors[] = 'Enter your e-mail address.';}
@@ -46,11 +46,11 @@
         {$email = mysqli_real_escape_string($db,
             trim($_POST['email']));}
 
-        if (empty ($_POST['phonex']))
+        if (empty ($_POST['phone']))
         {$errors[] = 'Enter your phone extension.';}
         else
-        {$phonex = mysqli_real_escape_string($db,
-            trim($_POST['phonex']));}
+        {$phone = mysqli_real_escape_string($db,
+            trim($_POST['phone']));}
 
         if (!empty($_POST['passwd1']))
         {if ($_POST['passwd1']!=$_POST['passwd2'])
@@ -62,14 +62,14 @@
         else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {$q = "SELECT uid FROM users WHERE user_name='$un'";
+        {$q = "SELECT userID FROM users WHERE username='$user'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
             {$errors[] = 'Username already in use, please select another.';}
         }
 
         if (empty($errors))
-        {$q = "SELECT uid FROM users WHERE email='$email'";
+        {$q = "SELECT userID FROM users WHERE email='$email'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
             {$errors[] = 'Email address already registered.
@@ -79,8 +79,8 @@
         if (empty($errors))
         {
             $q = "INSERT INTO users
-        (user_name, email, phonex, passwd)
-        VALUES ('$un','$email','$phonex',SHA1('$passwd'))";
+        (username, password, email, phone)
+        VALUES ('$user',SHA1('$passwd'),'$email','$phone')";
             $r = mysqli_query ($db, $q);
             if ($r)
         {echo '<h1>Form submitted successfully!</h1>
@@ -108,17 +108,17 @@
     <h1>New User Form</h1>
     <form action="newuser.php" method="POST">
             <p>
-                Username:   <input type="text" name="user_name"
-                                         value="<?php if (isset($_POST['user_name']))
-                                             echo $_POST['user_name'];?>">
+                Username:   <input type="text" name="username"
+                                         value="<?php if (isset($_POST['username']))
+                                             echo $_POST['username'];?>">
             </p> <p>
             E-mail Address:   <input type="text" name="email"
                                value="<?php if (isset($_POST['email']))
                                    echo $_POST['email'];?>">
             </p> <p>
-            Phone Extension:   <input type="text" name="phonex"
-                               value="<?php if (isset($_POST['phonex']))
-                                   echo $_POST['phonex'];?>">
+            Phone Extension:   <input type="text" name="phone"
+                               value="<?php if (isset($_POST['phone']))
+                                   echo $_POST['phone'];?>">
             </p> <p>
             Choose a password:   <input type="text" name="passwd1"
                                value="<?php if (isset($_POST['passwd1']))
