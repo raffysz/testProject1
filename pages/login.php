@@ -35,7 +35,7 @@
         {
             echo" - $msg<br>";
         }
-        echo 'Please try again or <a href="newuser.php">Register New User</a></p>';
+        echo 'Please try again or <a href="../pages/newuser.php">Register New User</a></p>';
     }
 
     ?>
