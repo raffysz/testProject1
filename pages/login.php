@@ -43,9 +43,9 @@
     <h1>Login</h1>
     <form action="../db_connect/login_action.php" method="POST">
         <p>
-            Username: <input type="text" name="username">
+            Username: <input type="text" name="un">
             </p><p>
-            Password: <input type="text" name="password">
+            Password: <input type="text" name="pass">
             </p><p>
             <input type="submit" value="Login">
         </p>

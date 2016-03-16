@@ -22,7 +22,7 @@ function validate($db, $user ='', $pwd='')
     }
     else
     {
-        $username = mysqli_real_escape_string($db, trim($user));
+        $un = mysqli_real_escape_string($db, trim($user));
     }
 
     if (empty($pwd))
@@ -31,13 +31,13 @@ function validate($db, $user ='', $pwd='')
     }
     else
     {
-        $password = mysqli_real_escape_string($db, trim($pwd));
+        $pass = mysqli_real_escape_string($db, trim($pwd));
     }
 
     if (empty($errors))
     {
 
-        $q = "SELECT userID, username, email FROM users WHERE username='$username' AND password=SHA1('$password')";
+        $q = "SELECT userID, username, email FROM users WHERE username='$un' AND password=SHA1('$pass')";
         $r = mysqli_query ($db, $q);
         var_dump($r);
         if (mysqli_num_rows($r)==1)
