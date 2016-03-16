@@ -45,6 +45,7 @@ function validate($db, $usern ='', $pwd='')
         }
         else
         {
+            var_dump($errors);
             $errors[] = 'Username and/or password incorrect, please try again!.';
         }
     }
