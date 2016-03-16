@@ -5,6 +5,18 @@ body {
     text-align: center;
 }
 
+a {
+    color: black;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: blueviolet;
+}
+
 .header {
     display: inline;
     top: 20px;
@@ -87,3 +99,16 @@ h2 {
     color: red;
 }
 
+.container {
+    width: 400px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.input {
+    float: left;
+}
+
+.submit {
+float: right;
+}
