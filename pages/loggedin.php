@@ -24,7 +24,7 @@
 <!--END OF HEADER -->
 
 <!--START OF MAIN -->
-<main class="mainindex">
+<main>
 
     <?php
 
@@ -37,7 +37,7 @@
     }
 
     echo "<h1>Welcome</h1>
-<p>You are now logged in as
+<p id='logged'>You are now logged in as
 {$_SESSION['username']},{$_SESSION['email']}
 </p>
 <p>Please select one of the following options:</p>";

@@ -98,3 +98,7 @@ h2 {
 #errmsg {
     color: red;
 }
+
+#logged {
+    font-size: 15px;
+}
