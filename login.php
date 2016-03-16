@@ -26,6 +26,32 @@
 <!--START OF MAIN -->
 <main>
 
+    <?php
+    $page_title ='Login';
+
+    if (isset($errors)&& !empty($errors))
+    {
+        echo '<p id="errmsg">There was a problem with your login details:<br>';
+        foreach ($errors as $msg)
+        {
+        echo" - $msg<br>";}
+        echo 'Please try again or
+        <a href="newuser.php">Register New User</a></p>';
+    }
+
+    ?>
+
+    <h1>Login</h1>
+    <form action="login.php" method="POST">
+        <p>
+            Username: <input type="text" name="un">
+            </p><p>
+            Password: <input type="text" name="passwd">
+            </p><p>
+            <input type="submit" value="Login">
+        </p>
+    </form>
+
 </main>
 <!--END OF MAIN -->
 

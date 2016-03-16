@@ -27,6 +27,8 @@
 <main>
 
     <?php
+    $page_title = 'NewUser';
+
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         require ('db_connect/connection.php');
