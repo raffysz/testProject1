@@ -28,20 +28,20 @@
 
     <?php
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['user_name']))
-{
-    require ('../db_connect/login_tools.php');
-    load();
-}
+    if (!isset($_SESSION['user_name']))
+    {
+        require ('../db_connect/login_tools.php');
+        load();
+    }
 
-echo "<h1>Welcome</h1>
+    echo "<h1>Welcome</h1>
 <p>You are now logged in,
 {$_SESSION['user_name']},{$_SESSION['email']}
 </p>";
 
-?>
+    ?>
 
 </main>
 <!--END OF MAIN -->

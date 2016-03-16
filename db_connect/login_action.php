@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         $_SESSION['user_name']=$data['user_name'];
         $_SESSION['email']=$data['email'];
 
-        load ('../pages/home.php');
+        load ('../pages/loggedin.php');
     }
 
     else {$errors = $data;}
