@@ -31,7 +31,7 @@
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
-        require('db_connect/connection.php');
+        require('../db_connect/connection.php');
         $errors = array();
 
         if (empty ($_POST['user_name']))
@@ -65,7 +65,7 @@
         {$q = "SELECT uid FROM users WHERE user_name='$un'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Username already in use, please selecte another.';}
+            {$errors[] = 'Username already in use, please select another.';}
         }
 
         if (empty($errors))
