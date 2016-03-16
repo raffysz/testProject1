@@ -44,19 +44,19 @@
 
     echo "
     <form action=\"../pages/submitbug.php\">
-        <input type=\"submit\" value=\"Login\">
+        <input type=\"submit\" value=\"Submit New Bug\">
     </form>
 
     <form action=\"../pages/retrievebug.php\">
-        <input type=\"submit\" value=\"Register\">
+        <input type=\"submit\" value=\"Retrieve an Existing Bug \">
     </form>
 
       <form action=\"../pages/upload.php\">
-        <input type=\"submit\" value=\"Login\">
+        <input type=\"submit\" value=\"Upload a File\">
     </form>
 
     <form action=\"../pages/logout.php\">
-        <input type=\"submit\" value=\"Register\">
+        <input type=\"submit\" value=\"Logout\">
     </form>"
 
     ?>

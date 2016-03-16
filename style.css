@@ -106,3 +106,7 @@ h2 {
 form {
     padding: 5px 0px 5px 0px;
 }
+
+input {
+    font-size: 15px;
+}
