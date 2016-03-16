@@ -36,10 +36,10 @@ function validate($db, $user ='', $pwd='')
 
     if (empty($errors))
     {
-
+        var_dump($errors);
         $q = "SELECT userID, username, email FROM users WHERE username='$un' AND password=SHA1('$pass')";
         $r = mysqli_query ($db, $q);
-        var_dump($r);
+
         if (mysqli_num_rows($r)==1)
         {
             $row = mysqli_fetch_array ($r, MYSQLI_ASSOC);
