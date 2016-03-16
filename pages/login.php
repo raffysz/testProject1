@@ -27,16 +27,15 @@
 <main>
 
     <?php
-    $page_title ='Login';
 
     if (isset($errors)&& !empty($errors))
     {
         echo '<p id="errmsg">There was a problem with your login details:<br>';
         foreach ($errors as $msg)
         {
-        echo" - $msg<br>";}
-        echo 'Please try again or
-        <a href="newuser.php">Register New User</a></p>';
+            echo" - $msg<br>";
+        }
+        echo 'Please try again or <a href="newuser.php">Register New User</a></p>';
     }
 
     ?>
