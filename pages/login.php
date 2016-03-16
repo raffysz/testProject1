@@ -41,7 +41,7 @@
     ?>
 
     <h1>Login</h1>
-    <form action="login.php" method="POST">
+    <form action="../db_connect/login_action.php" method="POST">
         <p>
             Username: <input type="text" name="un">
             </p><p>
