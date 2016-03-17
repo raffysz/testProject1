@@ -38,6 +38,25 @@
         load();
     }
 
+    if (empty ($_POST['title']))
+    {$errors[] = 'Enter a title for this bug.';}
+    else
+    {$title = mysqli_real_escape_string($db,
+        trim($_POST['title']));}
+
+    if (empty ($_POST['description']))
+    {$errors[] = 'Enter a description for this bug.';}
+
+    if (isset($errors)&& !empty($errors))
+    {
+        echo '<p id="errmsg">There was a problem with the form:<br>';
+        foreach ($errors as $msg)
+        {
+            echo" - $msg<br>";
+        }
+        echo 'Please check that all the fields are completed correctly!</p>';
+    }
+
     echo "<p id='logged'>Logged in as
     {$_SESSION['username']},{$_SESSION['email']}
     </p>";
