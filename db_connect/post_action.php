@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     if (!empty($_POST['title'])&& !empty($_POST['description']))
     {
         require('../db_connect/connection.php');
-        $q = "INSERT INTO bugs (title,description,userID,postDate)
-        VALUES ('{$_POST[title]}','{$_POST[description]}','{$_SESSION[userID]}',NOW())";
+        $q = "INSERT INTO bugs (title,description,userID)
+        VALUES ('{$_POST[title]}','{$_POST[description]}','{$_SESSION[userID]}')";
         $r = mysqli_query ($db, $q);
 
         if (mysqli_affected_rows($db)!=1)
