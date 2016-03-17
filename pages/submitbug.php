@@ -46,8 +46,7 @@
     <p>Title:<br>
     <input name="title" type="text" size="50"></p>
     <p>Description:<br>
-    <textarea name="description" required="required" rows="15" cols="50">
-    </textarea></p>
+    <textarea name="description" required="required" rows="15" cols="50"></textarea></p>
     <p><input type="submit" value="Submit"></p>
     </form>';
 
