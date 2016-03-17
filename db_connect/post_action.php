@@ -30,6 +30,4 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     }
 }
 
-echo '<p><a href="../pages/loggedin.php">Home</a></p>';
-
 ?>
