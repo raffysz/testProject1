@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         require('../db_connect/connection.php');
         $q = "INSERT INTO bugs (title,description,userID,postDate)
-        VALUES ('{$_POST[title]}','{$_POST[description]}','{$_SESSION[userID]}')";
+        VALUES ('{$_POST[title]}','{$_POST[description]}','{$_SESSION[userID]}',NOW())";
         $r = mysqli_query ($db, $q);
 
         if (mysqli_affected_rows($db)!=1)
