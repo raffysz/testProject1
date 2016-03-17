@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     }
 
     if (empty($errors)) {
+        require('../db_connect/connection.php');
         $q = "SELECT title FROM bugs WHERE title='$title''";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r) != 0) {
