@@ -52,8 +52,7 @@
 
         echo'<p>
         <a href="../pages/loggedin.php">Home</a> |
-        <a href="../pages/logout.php">Logout</a> |
-        </p>';
+        <a href="../pages/logout.php">Logout</a> |</p>';
 
     ?>
 
