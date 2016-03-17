@@ -39,7 +39,7 @@
     require('../db_connect/connection.php');
 
     require('../db_connect/post_action.php');
-
+    var_dump($errors);
     $q = "SELECT bugID FROM bugs WHERE title='{$_POST['title']}' AND userID='{$_SESSION['userID']}'";
     $r =mysqli_query($db, $q);
 
