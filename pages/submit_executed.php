@@ -26,42 +26,7 @@
 <!--START OF MAIN -->
 <main>
 
-    <?php
 
-    session_start();
-
-    if (!isset($_SESSION['userID']))
-    {
-        require ('../db_connect/login_tools.php');
-        load();
-    }
-
-    require('../db_connect/connection.php');
-
-    require('../db_connect/post_action.php');
-
-    $q = "SELECT bugID FROM bugs ORDER BY bugID DESC LIMIT 1";
-    $r =mysqli_query($db, $q);
-
-    if (mysqli_num_rows($r)==1)
-    {
-        echo'<p>Thank you for your submission!</p>
-            <p>Your bug ID is:</p>';
-        while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
-        {
-            echo '<p>'.$row['bugID'].'</p>';
-        }
-    }
-    else
-    {
-        echo'<p>There was a mistake in the retrieval of your bug ID please contact an Administrator.</p>';
-    }
-
-    echo '<p>
-    <a href="../pages/loggedin.php">Home</a> |
-    <a href="../pages/logout.php">Logout</a> |</p>';
-
-    ?>
 
 </main>
 <!--END OF MAIN -->
