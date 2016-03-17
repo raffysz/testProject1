@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     }
 
     if (empty($errors)) {
-        $q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
+        $q = "SELECT title FROM bugs WHERE title='$title''";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r) != 0) {
             $errors[] = 'Title already exist, please use another.';
