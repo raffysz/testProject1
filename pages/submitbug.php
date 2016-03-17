@@ -44,9 +44,9 @@
 
     echo '<form action="../db_connect/post_action.php" method="POST" accept-charset="utf-8">
     <p>Title:<br>
-    <input name="title" type="text" size="64"></p>
+    <input name="title" type="text" size="50"></p>
     <p>Description:<br>
-    <textarea name="description" rows="15">
+    <textarea name="description" required="required" rows="15" cols="50">
     </textarea></p>
     <p><input type="submit" value="Submit"></p>
     </form>';
