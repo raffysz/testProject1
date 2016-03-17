@@ -10,19 +10,21 @@ $page_title='Post Error';
 
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
-    if (empty($_POST['title']))
-    {
-        echo '<p>Please enter a Title for this bug.</p>';
+    if (empty ($_POST['title']))
+    {$errors[] = 'Enter a title for this bug.';}
+    else
+    {$title = mysqli_real_escape_string($db,
+        trim($_POST['title']));}
 
-        if (empty($_POST['description']))
-        {
-            echo '<p>Please enter a description for this bug.</p>';
-        }
-    }
+    if (empty ($_POST['description']))
+    {$errors[] = 'Enter a description for this bug.';}
+    else
+    {$description = mysqli_real_escape_string($db,
+        trim($_POST['description']));}
 
     if (empty($errors)) {
         require('../db_connect/connection.php');
-        $q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
+        $q = "SELECT title FROM bugs WHERE title='$title'";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r) != 0) {
             $errors[] = 'Title already exist, please use another.';
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     if (!empty($_POST['title'])&& !empty($_POST['description']))
     {
         require('../db_connect/connection.php');
-        $q = "INSERT INTO bugs (title,description,userID,postDate) VALUES ('{$_POST['title']}','{$_POST['description']}','{$_SESSION['userID']}',NOW())";
+        $q = "INSERT INTO bugs (title,description,userID,postDate) VALUES ('$title','{$_POST['description']}','{$_SESSION['userID']}',NOW())";
         $r = mysqli_query ($db, $q);
 
         if (mysqli_affected_rows($db)!=1)
