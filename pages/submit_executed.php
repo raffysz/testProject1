@@ -40,7 +40,7 @@
 
     require('../db_connect/post_action.php');
 
-    $q = "SELECT bugID FROM bugs WHERE title='{$_POST['title']}' AND userID='{$_SESSION['userID']}'";
+    $q = "SELECT bugID FROM bugs ORDER BY bugID DESC LIMIT 1";
     $r =mysqli_query($db, $q);
 
     if (mysqli_num_rows($r)==1)
