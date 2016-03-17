@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 
         if (mysqli_affected_rows($db)!=1)
         {
-            echo '<p>Error</p>'.mysqli_error($db);
+            load('../pages/errortitle.php');
         }
         else
         {
