@@ -11,15 +11,11 @@ $page_title='Post Error';
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
 
-    if (!empty($_POST['title'])&& !empty($_POST['description']))
-    {
-        require('../db_connect/connection.php');
-        $q = "SELECT title FROM bugs WHERE title='$title'";
-        $r = mysqli_query($db, $q);
-        if (mysqli_num_rows($r) != 0) {
-            $errors[] = 'Title already exist, please use another.';
-        }
-    }
+    if (empty ($_POST['title']))
+    {echo 'Enter a title for this bug.';}
+
+    if (empty ($_POST['description']))
+    {echo 'Enter a description for this bug.';}
 
     if (!empty($_POST['title'])&& !empty($_POST['description']))
     {
