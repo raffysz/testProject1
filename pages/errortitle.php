@@ -42,7 +42,7 @@
     {$_SESSION['username']},{$_SESSION['email']}
     </p>";
 
-    echo '<h1 id="errmsg">Error: The title for the bug report already exist in our database!</H1>
+    echo '<p id="errmsg">Error: The title for the bug report already exist in our database!</p>
             <p id="errmsg">Please try again: <a href="../pages/submitbug.php">submit new bug</a></p>';
 
     echo'<p>
