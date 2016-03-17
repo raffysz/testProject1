@@ -43,7 +43,7 @@
     $q = "SELECT bugID FROM bugs WHERE title='{$_POST['title']}' AND userID='{$_SESSION['userID']}'";
     $r =mysqli_query($db, $q);
 
-    if (mysqli_num_rows($r)>0)
+    if (mysqli_num_rows($r)==1)
     {
         echo'<p>Thank you for your submission!</p>
             <p>Your bug ID is:</p>';
