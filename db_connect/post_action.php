@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         }
     }
 
+    if (empty($errors))
+    {$q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
+        $r = mysqli_query($db, $q);
+        if (mysqli_num_rows($r)!=0)
+        {$errors[] = 'Title already exist, please use another.';}
+
     if (!empty($_POST['title'])&& !empty($_POST['description']))
     {
         require('../db_connect/connection.php');
