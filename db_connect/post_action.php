@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         }
         else
         {
-            load('../pages/submitted.php');
+            load('../pages/submit_executed.php');
         }
 
         mysqli_close($db);
