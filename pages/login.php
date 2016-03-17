@@ -28,6 +28,8 @@
 
     <?php
 
+    $page_title = 'Login';
+
     if (isset($errors)&& !empty($errors))
     {
         echo '<p id="errmsg">There was a problem with your login details:<br>';

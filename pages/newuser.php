@@ -27,7 +27,7 @@
 <main>
 
     <?php
-    $page_title = 'NewUser';
+    $page_title = 'Registration Form';
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
