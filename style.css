@@ -134,6 +134,37 @@ td {
     float: left;
     height: auto;
     width: auto;
+    width: 210px;
     margin: 4% 0;
+    left: 0px;
 }
 
+dt.btn {
+    display: block;
+    margin-bottom: 3px;
+}
+
+dt.btn a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    width: 190px
+}
+
+dt.btn a {
+    background: dimgray;
+    border: 3px outset dimgray;
+}
+
+dt.btn a:hover {
+      padding-left: 15px;
+      background: blueviolet;
+      border-color: blueviolet;
+  }
+
+dt.btn a:active {
+    padding-left: 15px;
+    background: blueviolet;
+    border-color: blueviolet;
+}
