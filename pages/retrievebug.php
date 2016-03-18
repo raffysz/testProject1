@@ -30,7 +30,7 @@
     <p>Here youcan retrieve all information about a specific bug.</p>
     <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>
 
-    <form action="./pages/retrievebug.php" method="POST">
+    <form action="../pages/retrievebug.php" method="POST">
         <p>
             Bug ID:   <input type="text" name="bug"
                              value="<?php if (isset($_POST['bug']))
