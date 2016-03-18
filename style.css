@@ -132,7 +132,7 @@ td {
 
 #navigation {
     float: left;
-    background-color: #666;
+    background-color: gray;
     height: 400px;
     width: 200px;
     border-radius: 9px;
@@ -148,7 +148,7 @@ td {
 
 #list a:link, #list a:visited {
     float:left;
-    color: #FFE;
+    color: aliceblue;
     padding: 15px 25px;
     height: 35px;
     width: 150px;
@@ -156,7 +156,7 @@ td {
 }
 #list a:hover, #list a:active,
 list .active a:link, list .active a:visited {
-    background-color: #CF5C3E;
+    background-color: blueviolet;
     text-shadow: none;
 }
 
@@ -168,13 +168,13 @@ list .active a:link, list .active a:visited {
 
 #list2 a:link, #list2 a:visited {
     float:left;
-    color: #FFF;
+    color: aliceblue;
     height: 50px;
     width: 150px;
     font-size: 18pt;
 }
 #list2 a:hover, #list2 a:active,
 list2 .active a:link, list2 .active a:visited {
-    background-color: #CF5C3F;
+    background-color: blueviolet;
     text-shadow: none;
 }
