@@ -129,3 +129,52 @@ table.centre {
 td {
     border: 2px solid black;
 }
+
+#navigation {
+    float: left;
+    background-color: #666;
+    height: 400px;
+    width: 200px;
+    border-radius: 9px;
+    margin: 4% 0;
+    display: inline;
+}
+
+#ul {
+    display: inline;
+    list-style:none;
+    margin: 2% 0;
+}
+
+#list a:link, #list a:visited {
+    float:left;
+    color: #FFE;
+    padding: 15px 25px;
+    height: 35px;
+    width: 150px;
+    font-size: 18pt;
+}
+#list a:hover, #list a:active,
+list .active a:link, list .active a:visited {
+    background-color: #CF5C3E;
+    text-shadow: none;
+}
+
+#ul2 {
+    display: inline;
+    list-style:none;
+    margin: 2% 0;
+}
+
+#list2 a:link, #list2 a:visited {
+    float:left;
+    color: #FFF;
+    height: 50px;
+    width: 150px;
+    font-size: 18pt;
+}
+#list2 a:hover, #list2 a:active,
+list2 .active a:link, list2 .active a:visited {
+    background-color: #CF5C3F;
+    text-shadow: none;
+}

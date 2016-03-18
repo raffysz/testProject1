@@ -38,6 +38,17 @@
         load();
     }
 
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul id="ul">
+				<li id="list" class="active">
+				<a href="home.html">Home</a>
+				<a href="About_Us.html">About Us</a>
+				<a href="f.a.q.html">F.A.Q</a>
+				<a href="Links.html">Links</a>
+				</li>
+			</ul></nav>	
+		</div>';
+
     echo "<h1>Welcome</h1>
     <p id='logged'>You are now logged in as
     {$_SESSION['username']},{$_SESSION['email']}
