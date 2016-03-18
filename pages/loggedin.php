@@ -41,10 +41,13 @@
     echo '<div id="sidebar">
 			<nav id="navigation"><ul id="ul">
 				<li id="list" class="active">
-				<a href="home.html">Home</a>
-				<a href="About_Us.html">About Us</a>
-				<a href="f.a.q.html">F.A.Q</a>
-				<a href="Links.html">Links</a>
+				<a href="../pages/loggedin.php">Home</a>
+				<a href="../pages/submitbug.php">Submit new bug</a>
+				<a href="../pages/listbugs.php">List all bugs</a>
+				<a href="../pages/retrievebug.php">Retrieve all bug info</a>
+				<a href="../pages/comments.php">Post a comment</a>
+				<a href="../pages/upload.php">Upload a file</a>
+				<a href="../pages/logout.php">Logout</a>
 				</li>
 			</ul></nav>	
 		</div>';
