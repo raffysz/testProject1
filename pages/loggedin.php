@@ -50,15 +50,15 @@
     </form>
 
     <form action=\"../pages/listbugs.php\">
-        <input type=\"submit\" value=\"View list of reported bugs\">
+        <input type=\"submit\" value=\"View List Of Reported Bugs\">
     </form>
     
     <form action=\"../pages/retrievebug.php\">
-        <input type=\"submit\" value=\"Retrieve a specific bug\">
+        <input type=\"submit\" value=\"Retrieve a Specific Bug\">
     </form>
     
     <form action=\"../pages/comments.php\">
-        <input type=\"submit\" value=\"Leave a comment\">
+        <input type=\"submit\" value=\"Leave a Comment\">
     </form>
 
       <form action=\"../pages/upload.php\">
