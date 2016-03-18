@@ -69,7 +69,6 @@
     <nav>
 
         <p>
-            <a href ="../index.html">Home</a> |
             <a href ="#">About</a> |
             <a href ="#">Useful Links</a> |
             <a href ="#">Copyright ©2016</a>
