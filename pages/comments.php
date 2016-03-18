@@ -53,7 +53,7 @@
         if (empty($errors))
         {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r)!=0)
+            if (mysqli_num_rows($r)!=1)
             {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
 
