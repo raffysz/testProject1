@@ -120,3 +120,8 @@ input {
     font-size: 15px;
 }
 
+table.centre {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
