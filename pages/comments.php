@@ -49,6 +49,11 @@
         {$bugid = mysqli_real_escape_string($db,
             trim($_POST['bugid']));}
 
+        if (empty ($_POST['comment']))
+        {$errors[] = 'Enter a comment.';}
+        else
+        {$comment = mysqli_real_escape_string($db,
+            trim($_POST['comment']));}
 
         if (empty($errors))
         {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
