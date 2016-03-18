@@ -38,12 +38,11 @@
         load();
     }
 
-    echo "<p id='logged'>Logged in as
-    {$_SESSION['username']},{$_SESSION['email']}
+    echo "<p id='logged'>Please complete the form below to report a new bug.
     </p>";
 
     echo '<form action="../db_connect/post_action.php" method="POST" accept-charset="utf-8">
-    <p>Title:<br>
+    <p>Title (Must be a unique title):<br>
     <input name="title" required="required" type="text" size="50"></p>
     <p>Description:<br>
     <textarea name="description" required="required" rows="15" cols="50"></textarea></p>
