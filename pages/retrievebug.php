@@ -96,7 +96,7 @@
             $q = "SELECT commentID, description, postDate, userID FROM comments WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<div class="div" align="centre" style="text-align: center"><table class="centre"><tr><th>Comment ID</th>
+                echo '<table class="centre"><tr><th>Comment ID</th>
         <th>Comment</th><th>postDate</th><th>userID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
@@ -106,7 +106,7 @@
             <td>' . $row['userID'] . '</td>
             </tr>';
                 }
-                echo '</table></div>';
+                echo '</table>';
             } else {
                 echo '<p>Incorrect or nonexistent bug ID.</p>';
             }
