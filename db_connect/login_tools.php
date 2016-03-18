@@ -47,7 +47,8 @@ function validate($db, $user ='', $pwd='')
         }
         else
         {
-            $errors[] = 'Username and/or password incorrect, please try again!.';
+            $errors[] = 'The username and password provided are incorrect or your account is not activated.
+            Please try again or if you previously registered waith for the email of account activation confirmation.';
         }
 
 
