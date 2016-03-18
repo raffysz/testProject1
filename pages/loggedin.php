@@ -39,16 +39,14 @@
     }
 
     echo '<div id="sidebar">
-			<nav id="navigation"><ul id="ul">
-				<li id="list" class="active">
-				<a href="../pages/loggedin.php">Home</a>
-				<a href="../pages/submitbug.php">Submit new bug</a>
-				<a href="../pages/listbugs.php">List all bugs</a>
-				<a href="../pages/retrievebug.php">Retrieve all bug info</a>
-				<a href="../pages/comments.php">Post a comment</a>
-				<a href="../pages/upload.php">Upload a file</a>
-				<a href="../pages/logout.php">Logout</a>
-				</li>
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/upload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
 			</ul></nav>	
 		</div>';
 

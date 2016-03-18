@@ -132,10 +132,8 @@ td {
 
 #navigation {
     float: left;
-    background-color: gray;
-    height: 400px;
-    width: 200px;
-    border-radius: 9px;
+    height: auto;
+    width: auto;
     margin: 4% 0;
 }
 
