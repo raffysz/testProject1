@@ -50,6 +50,19 @@
 			</ul></nav>	
 		</div>';
 
+    echo '<h1>Bug Details</h1>
+    <p>Here youcan retrieve all information about a specific bug.</p>
+    <p>If you don\'t know the bug ID please consult: <a href=\'../pages/listbugs.php\'>List Of Reported Bugs</a></p>
+
+    <form action="../pages/retrievebug.php" method="POST">
+        <p>
+            Bug ID:   <input type="text" name="bug"
+                             value="<?php if (isset($_POST[\'bug\']))
+                                 echo $_POST[\'bug\'];?>">
+        </p> <p>
+            <input type="submit" value="Submit Form"> </p>
+    </form>';
+
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         require('../db_connect/connection.php');
@@ -119,19 +132,6 @@
     }
 
     ?>
-
-    <h1>Bug Details</h1>
-    <p>Here youcan retrieve all information about a specific bug.</p>
-    <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>
-
-    <form action="../pages/retrievebug.php" method="POST">
-        <p>
-            Bug ID:   <input type="text" name="bug"
-                             value="<?php if (isset($_POST['bug']))
-                                 echo $_POST['bug'];?>">
-        </p> <p>
-            <input type="submit" value="Submit Form"> </p>
-    </form>
 
 </main>
 <!--END OF MAIN -->
