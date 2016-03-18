@@ -47,7 +47,7 @@
         <p>
             Username: <input type="text" name="user">
             </p><p>
-            Password: <input type="text" name="pass">
+            Password: <input type="password" name="pass">
             </p><p>
             <input type="submit" value="Login">
         </p>
