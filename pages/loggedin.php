@@ -51,35 +51,8 @@
 		</div>';
 
     echo "<h1>Welcome</h1>
-    <p id='logged'>You are now logged in as
-    {$_SESSION['username']},{$_SESSION['email']}
-    </p>
-    <p id='logged'>Please select one of the following options:</p>";
-
-    echo "
-    <form action=\"../pages/submitbug.php\">
-        <input type=\"submit\" value=\"Submit New Bug\">
-    </form>
-
-    <form action=\"../pages/listbugs.php\">
-        <input type=\"submit\" value=\"View List Of Reported Bugs\">
-    </form>
-    
-    <form action=\"../pages/retrievebug.php\">
-        <input type=\"submit\" value=\"Retrieve a Specific Bug\">
-    </form>
-    
-    <form action=\"../pages/comments.php\">
-        <input type=\"submit\" value=\"Leave a Comment\">
-    </form>
-
-      <form action=\"../pages/upload.php\">
-        <input type=\"submit\" value=\"Upload a File\">
-    </form>
-
-    <form action=\"../pages/logout.php\">
-        <input type=\"submit\" value=\"Logout\">
-    </form>"
+    <p id='logged'>You are now logged in as {$_SESSION['username']},{$_SESSION['email']}</p>
+    <p id='logged'>Please select an option from the side menu.</p>";
 
     ?>
 
