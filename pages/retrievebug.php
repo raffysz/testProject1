@@ -67,7 +67,7 @@
             $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<table class="centre" style="padding: 10px 0px 10px 0px;"><tr><th>Bug ID</th>
+                echo '<table class="centre"><tr><th>Bug ID</th>
         <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
@@ -91,7 +91,7 @@
             <p id="errmsg">If the problem persist please contact a system administrator.</p>';
         }
 
-
+        echo '<br>';
 
         if (empty($errors))
         {
