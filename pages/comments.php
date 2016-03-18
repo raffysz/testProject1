@@ -36,6 +36,18 @@
         load();
     }
 
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/upload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
+			</ul></nav>	
+		</div>';
+
     $page_title = 'Registration Form';
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
@@ -97,14 +109,6 @@
             <br><textarea name="comment" required="required" rows="15" cols="50"></textarea></p>
         <p><input type="submit" value="Submit"></p>
     </form>
-
-    <p>
-        <a href="../pages/loggedin.php">Home</a> |
-        <a href="../pages/submitbug.php">Submit New Bug</a> |
-        <a href="../pages/listbugs.php">View List Of Reported Bugs</a> |
-        <a href="../pages/retrievebug.php">Retrieve a Specific Bug</a> |
-        <a href="../pages/upload.php">Upload a File</a> |
-        <a href="../pages/logout.php">Logout</a> |</p>
 
 </main>
 <!--END OF MAIN -->

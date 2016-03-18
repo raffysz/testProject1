@@ -38,6 +38,18 @@
         load();
     }
 
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/upload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
+			</ul></nav>	
+		</div>';
+
     echo "<h1>Bugs List</h1>
     <p>The following is the list of all reported bugs and their status</p>";
 
@@ -65,14 +77,6 @@
     {
         echo '<p>Error retrieving data.</p>';
     }
-
-    echo'<p>
-        <a href="../pages/loggedin.php">Home</a> |
-        <a href="../pages/submitbug.php">Submit New Bug</a> |
-        <a href="../pages/retrievebug.php">Retrieve a Specific Bug</a> |
-        <a href="../pages/comments.php">Leave a Comment</a> |
-        <a href="../pages/upload.php">Upload a File</a> |
-        <a href="../pages/logout.php">Logout</a> |</p>';
 
     ?>
 

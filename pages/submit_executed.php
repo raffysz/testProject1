@@ -36,6 +36,18 @@
         load();
     }
 
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/upload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
+			</ul></nav>	
+		</div>';
+
     require('../db_connect/connection.php');
 
     require('../db_connect/post_action.php');
@@ -56,11 +68,7 @@
     {
         echo'<p>There was a mistake in the retrieval of your bug ID please contact an Administrator.</p>';
     }
-
-    echo'<p>
-        <a href="../pages/loggedin.php">Home</a> |
-        <a href="../pages/logout.php">Logout</a> |</p>';
-
+    
     ?>
 
 </main>
