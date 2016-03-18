@@ -56,9 +56,7 @@
 
     <form action="../pages/retrievebug.php" method="POST">
         <p>
-            Bug ID:   <input type="text" name="bug"
-                             value="<?php if (isset($_POST[\'bug\']))
-                                 echo $_POST[\'bug\'];?>">
+            Bug ID:   <input type="text" name="bug">
         </p> <p>
             <input type="submit" value="Submit Form"> </p>
     </form>';
