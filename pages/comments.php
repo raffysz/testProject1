@@ -118,8 +118,6 @@
                        value="<?php if (isset($_POST['email']))
                            echo $_POST['email'];?>">
 
-            <textarea name="description" required="required" rows="15" cols="50"></textarea>
-
         </p>
     </form>
 
