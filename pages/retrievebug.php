@@ -118,15 +118,16 @@
         }
 
     }
-    ?>
 
-    <p>
+    echo '<p>
         <a href="../pages/loggedin.php">Home</a> |
         <a href="../pages/submitbug.php">Submit New Bug</a> |
         <a href="../pages/listbugs.php">View List Of Reported Bugs</a> |
         <a href="../pages/comments.php">Leave a Comment</a> |
         <a href="../pages/upload.php">Upload a File</a> |
-        <a href="../pages/logout.php">Logout</a> |</p>
+        <a href="../pages/logout.php">Logout</a> |</p>';
+
+    ?>
 
 </main>
 <!--END OF MAIN -->

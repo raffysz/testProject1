@@ -81,6 +81,15 @@
             mysqli_close ($db);
         }
     }
+
+    echo '<p>
+        <a href="../pages/loggedin.php">Home</a> |
+        <a href="../pages/submitbug.php">Submit New Bug</a> |
+        <a href="../pages/listbugs.php">View List Of Reported Bugs</a> |
+        <a href="../pages/retrievebug.php">Retrieve a Specific Bug</a> |
+        <a href="../pages/upload.php">Upload a File</a> |
+        <a href="../pages/logout.php">Logout</a> |</p>';
+    
     ?>
 
     <h1>Comment form</h1>
