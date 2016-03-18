@@ -105,7 +105,7 @@
 
     <h1>Comment form</h1>
     <p>Please check the correct bug ID before leaving a comment here:</p>
-    <p><a href="../listbugs.php">View List Of Reported Bugs</a></p>
+    <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
     <form action="comments.php" method="POST">
         <p>
@@ -115,8 +115,8 @@
         </p> <p>
             Comment:
             <br><textarea name="description" required="required" rows="15" cols="50"
-                       value="<?php if (isset($_POST['email']))
-                           echo $_POST['email'];?>">
+                       value="<?php if (isset($_POST['description']))
+                           echo $_POST['description'];?>">
 
         </p>
     </form>
