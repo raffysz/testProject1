@@ -114,10 +114,7 @@
                            echo $_POST['bugid'];?>">
         </p> <p>
             Comment:
-            <br><textarea name="description" required="required" rows="15" cols="50"
-                       value="<?php if (isset($_POST['description']))
-                           echo $_POST['description'];?>">
-
+            <br><textarea name="description" required="required" rows="15" cols="50">
         </p>
     </form>
 
