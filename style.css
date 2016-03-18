@@ -124,6 +124,7 @@ table.centre {
     margin-left: auto;
     margin-right: auto;
     border: 3px double black;
+    padding: 10px 0px 10px 0px;
 }
 
 td {
