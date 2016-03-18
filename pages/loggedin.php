@@ -49,9 +49,17 @@
         <input type=\"submit\" value=\"Submit New Bug\">
     </form>
 
-    <form action=\"../pages/retrievebug.php\">
-        <input type=\"submit\" value=\"Retrieve an Existing Bug \">
+    <form action=\"../pages/listbugs.php\">
+        <input type=\"submit\" value=\"View list of reported bugs\">
     </form>
+    
+    <form action=\"../pages/retrievebug.php\">
+        <input type=\"submit\" value=\"Retrieve a specific bug\">
+    </form>
+    
+    <form action=\"../pages/comments.php\">
+        <input type=\"submit\" value=\"Leave a comment\">
+    </form>\"
 
       <form action=\"../pages/upload.php\">
         <input type=\"submit\" value=\"Upload a File\">
