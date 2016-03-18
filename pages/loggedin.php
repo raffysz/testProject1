@@ -59,7 +59,7 @@
     
     <form action=\"../pages/comments.php\">
         <input type=\"submit\" value=\"Leave a comment\">
-    </form>\
+    </form>
 
       <form action=\"../pages/upload.php\">
         <input type=\"submit\" value=\"Upload a File\">

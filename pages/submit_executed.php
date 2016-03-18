@@ -57,6 +57,10 @@
         echo'<p>There was a mistake in the retrieval of your bug ID please contact an Administrator.</p>';
     }
 
+    echo'<p>
+        <a href="../pages/loggedin.php">Home</a> |
+        <a href="../pages/logout.php">Logout</a> |</p>';
+
     ?>
 
 </main>
