@@ -26,6 +26,19 @@
 <!--START OF MAIN -->
 <main>
 
+    <h1>Bug Details</h1>
+    <p>Here youcan retrieve all information about a specific bug.</p>
+    <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>
+
+    <form action="./pages/retrievebug.php" method="POST">
+        <p>
+            Bug ID:   <input type="text" name="bug"
+                             value="<?php if (isset($_POST['bug']))
+                                 echo $_POST['bug'];?>">
+        </p> <p>
+            <input type="submit" value="Submit Form"> </p>
+    </form>
+
     <?php
 
     $page_title = 'Bug List';
@@ -38,36 +51,47 @@
         load();
     }
 
-    echo "<h1>Bug Details</h1>
-    <p>Here youcan retrieve all information about a specific bug.</p>
-    <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>";
-
-    require ('../db_connect/connection.php');
-
-    $q = "SELECT bugID, title, postDate, fixDate, fixed FROM bugs";
-    $r = mysqli_query( $db, $q);
-    if (mysqli_num_rows($r) >0)
+    if ($_SERVER['REQUEST_METHOD']=='POST')
     {
-        echo '<div align="centre" style="text-align: center"><table class="centre"><tr><th>Bug ID</th>
-        <th>Title</th><th>Post Date</th><th>Fix Date</th><th>Status</th></tr>';
-        while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
+        require('../db_connect/connection.php');
+        $errors = array();
+
+        if (empty ($_POST['bug']))
+        {$errors[] = 'Enter a bug ID.';}
+        else
+        {$bugid = mysqli_real_escape_string($db,
+            trim($_POST['bug']));}
+
+        if (empty($errors))
         {
-            echo'<tr>
-            <td>'.$row['bugID'].'</td>
-            <td>'.$row['title'].'</td>
-            <td>'.$row['postDate'].'</td>
-            <td>'.$row['fixDate'].'</td>
-            <td>'.$row['fixed'].'</td>
+            $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) > 0) {
+                echo '<div align="centre" style="text-align: center"><table class="centre"><tr><th>Bug ID</th>
+        <th>Title</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
+                while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+                    echo '<tr>
+            <td>' . $row['bugID'] . '</td>
+            <td>' . $row['title'] . '</td>
+            <td>' . $row['postDate'] . '</td>
+            <td>' . $row['fixDate'] . '</td>
+            <td>' . $row['fixed'] . '</td>
+            <td>' . $row['userID'] . '</td>
             </tr>';
+                }
+                echo '</table></div>';
+            } else {
+                echo '<p>Incorrect or nonexistent bug ID.</p>';
+            }
         }
-        echo '</table></div>';
-    }
-    else
-    {
-        echo '<p>Error retrieving data.</p>';
-    }
+        else
+        {
+            echo '<p id="errmsg">An error has occurred, please try again.</p>
+            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
+        }
 
-
+    }
+    ?>
 
     echo'<p>
         <a href="../pages/loggedin.php">Home</a> |
@@ -76,8 +100,6 @@
         <a href="../pages/comments.php">Leave a Comment</a> |
         <a href="../pages/upload.php">Upload a File</a> |
         <a href="../pages/logout.php">Logout</a> |</p>';
-
-    ?>
 
 </main>
 <!--END OF MAIN -->
