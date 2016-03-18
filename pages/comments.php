@@ -94,8 +94,8 @@
                            echo $_POST['bugid'];?>">
         </p> <p>
             Comment:
-            <br><textarea name="comment" required="required" rows="15" cols="50">
-        </p>
+            <br><textarea name="comment" required="required" rows="15" cols="50"></textarea></p>
+        <p><input type="submit" value="Submit"></p>
     </form>
 
 </main>
