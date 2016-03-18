@@ -49,12 +49,6 @@
         {$bugid = mysqli_real_escape_string($db,
             trim($_POST['bugid']));}
 
-        if (empty ($_POST['comment']))
-        {$errors[] = 'Enter a comment.';}
-        else
-        {$comment = mysqli_real_escape_string($db,
-            trim($_POST['comment']));}
-
         if (empty($errors))
         {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
@@ -100,7 +94,7 @@
                            echo $_POST['bugid'];?>">
         </p> <p>
             Comment:
-            <br><textarea name="comment" rows="15" cols="50"></textarea></p>
+            <br><textarea name="comment" required="required" rows="15" cols="50"></textarea></p>
         <p><input type="submit" value="Submit"></p>
     </form>
 
