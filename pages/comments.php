@@ -27,6 +27,15 @@
 <main>
 
     <?php
+
+    session_start();
+
+    if (!isset($_SESSION['username']))
+    {
+        require ('../db_connect/login_tools.php');
+        load();
+    }
+
     $page_title = 'Registration Form';
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
@@ -34,57 +43,28 @@
         require('../db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['username']))
-        {$errors[] = 'Enter a username.';}
+        if (empty ($_POST['bugid']))
+        {$errors[] = 'Enter a bug ID.';}
         else
-        {$username = mysqli_real_escape_string($db,
-            trim($_POST['username']));}
+        {$bugid = mysqli_real_escape_string($db,
+            trim($_POST['bugid']));}
 
-        if (empty ($_POST['email']))
-        {$errors[] = 'Enter your e-mail address.';}
-        else
-        {$email = mysqli_real_escape_string($db,
-            trim($_POST['email']));}
-
-        if (empty ($_POST['phone']))
-        {$errors[] = 'Enter your phone extension.';}
-        else
-        {$phone = mysqli_real_escape_string($db,
-            trim($_POST['phone']));}
-
-        if (!empty($_POST['passwd1']))
-        {if ($_POST['passwd1']!=$_POST['passwd2'])
-        {$errors[] = 'Passwords do not match.';}
-        else
-        {$passwd = mysqli_real_escape_string($db,
-            trim($_POST['passwd1']));}
-        }
-        else{$errors[] = 'Enter your password.';}
 
         if (empty($errors))
-        {$q = "SELECT userID FROM users WHERE username='$username'";
+        {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Username already in use.';}
+            {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
 
-        if (empty($errors))
-        {$q = "SELECT userID FROM users WHERE email='$email'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Email address already registered.
-            <a href="login.php">Login</a>';}
-        }
-
-        if (empty($errors))
+        if (empty($errors) && !empty($_POST['comment']))
         {
-            $q = "INSERT INTO users (username, password, email, phone) VALUES ('$username',SHA1('$passwd'),'$email','$phone')";
+            $q = "INSERT INTO comments (description, postDate, userID, bugID) VALUES ('{$_POST['comment']}',NOW(),'{$_SESSION['userID']}','$bugid')";
             $r = mysqli_query ($db, $q);
             if ($r)
             {echo '<h1>Form submitted successfully!</h1>
-        <p>Your request of registration is now pending, an e-mail will inform you of any changes.</p>
-        <p>For any iformation please contact the database administrator.</p>
-        <p><a href="../index.html">Home</a>   <a href="login.php">Login</a></p>';
+        <p>Your comment is been submitted successfully and can now be view by selecting the bug ID here:</p>
+        <p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
             }
             mysqli_close($db);
             exit();
@@ -114,7 +94,7 @@
                            echo $_POST['bugid'];?>">
         </p> <p>
             Comment:
-            <br><textarea name="description" required="required" rows="15" cols="50">
+            <br><textarea name="comment" required="required" rows="15" cols="50">
         </p>
     </form>
 
