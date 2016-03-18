@@ -38,8 +38,9 @@
         load();
     }
 
-    echo "<h1>Bugs List</h1>
-    <p>The following is the list of all reported bugs and their status</p>";
+    echo "<h1>Bug Details</h1>
+    <p>Here youcan retrieve all information about a specific bug.</p>
+    <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>";
 
     require ('../db_connect/connection.php');
 
@@ -66,11 +67,12 @@
         echo '<p>Error retrieving data.</p>';
     }
 
+
+
     echo'<p>
         <a href="../pages/loggedin.php">Home</a> |
         <a href="../pages/submitbug.php">Submit New Bug</a> |
-        <a href="../pages/listbugs.php"></a> |
-        <a href="../pages/retrievebug.php">Retrieve a Specific Bug</a> |
+        <a href="../pages/listbugs.php">View List Of Reported Bugs</a> |
         <a href="../pages/comments.php">Leave a Comment</a> |
         <a href="../pages/upload.php">Upload a File</a> |
         <a href="../pages/logout.php">Logout</a> |</p>';
@@ -106,3 +108,4 @@
 
 </body>
 </html>
+
