@@ -91,6 +91,32 @@
             <p id="errmsg">If the problem persist please contact a system administrator.</p>';
         }
 
+        if (empty($errors))
+        {
+            $q = "SELECT commentID, description, postDate, userID FROM comments WHERE bugID='$bugid'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) > 0) {
+                echo '<div align="centre" style="text-align: center"><table class="centre"><tr><th>Comment ID</th>
+        <th>Comment</th><th>postDate</th><th>userID</th></tr>';
+                while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+                    echo '<tr>
+            <td>' . $row['commentID'] . '</td>
+            <td>' . $row['description'] . '</td>
+            <td>' . $row['postDate'] . '</td>
+            <td>' . $row['userID'] . '</td>
+            </tr>';
+                }
+                echo '</table></div>';
+            } else {
+                echo '<p>Incorrect or nonexistent bug ID.</p>';
+            }
+        }
+        else
+        {
+            echo '<p id="errmsg">An error has occurred, please try again.</p>
+            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
+        }
+
     }
     ?>
 
