@@ -113,12 +113,7 @@
                 echo '<p>Incorrect or nonexistent bug ID.</p>';
             }
         }
-        else
-        {
-            echo '<p id="errmsg">An error has occurred, please try again.</p>
-            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
-        }
-
+        
     }
     ?>
 
