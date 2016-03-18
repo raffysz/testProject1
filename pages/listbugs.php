@@ -38,39 +38,19 @@
         load();
     }
 
-    echo "<h1>Bugs List</h1>
-    <p>The following is the list of all reported bugs and their status</p>";
+    echo "<h1>Bug Details</h1>
+    <p>Here youcan retrieve all information about a specific bug.</p>
+    <p>If you don't know the bug ID please consult: <a href='../pages/listbugs.php'>List Of Reported Bugs</a></p>";
     
     require ('../db_connect/connection.php');
 
-    $q = "SELECT bugID, title, postDate, fixDate, fixed FROM bugs";
-    $r = mysqli_query( $db, $q);
-    if (mysqli_num_rows($r) >0)
-    {
-        echo '<div align="centre" style="text-align: center"><table class="centre"><tr><th>Bug ID</th>
-        <th>Title</th><th>Post Date</th><th>Fix Date</th><th>Status</th></tr>';
-        while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
-        {
-            echo'<tr>
-            <td>'.$row['bugID'].'</td>
-            <td>'.$row['title'].'</td>
-            <td>'.$row['postDate'].'</td>
-            <td>'.$row['fixDate'].'</td>
-            <td>'.$row['fixed'].'</td>
-            </tr>';
-        }
-        echo '</table></div>';
-    }
-    else
-    {
-        echo '<p>Error retrieving data.</p>';
-    }
+    
 
     echo'<p>
         <a href="../pages/loggedin.php">Home</a> |
         <a href="../pages/submitbug.php">Submit New Bug</a> |
         <a href="../pages/retrievebug.php">Retrieve a Specific Bug</a> |
-        <a href="../pages/comments.php">Leave a Comment</a> |
+        <a href="../pages/comments.php">View List Of Reported Bugs</a> |
         <a href="../pages/upload.php">Upload a File</a> |
         <a href="../pages/logout.php">Logout</a> |</p>';
 
