@@ -73,6 +73,7 @@
                     echo '<tr>
             <td>' . $row['bugID'] . '</td>
             <td>' . $row['title'] . '</td>
+            <td>' . $row['description'] . '</td>
             <td>' . $row['postDate'] . '</td>
             <td>' . $row['fixDate'] . '</td>
             <td>' . $row['fixed'] . '</td>
