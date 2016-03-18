@@ -139,12 +139,12 @@ td {
     left: 0px;
 }
 
-dt.btn {
+dl.btn {
     display: block;
     margin-bottom: 3px;
 }
 
-dt.btn a {
+dl.btn a {
     display: block;
     text-decoration: none;
     color: white;
@@ -152,18 +152,18 @@ dt.btn a {
     width: 190px
 }
 
-dt.btn a {
+dl.btn a {
     background: dimgray;
     border: 3px outset dimgray;
 }
 
-dt.btn a:hover {
+dl.btn a:hover {
       padding-left: 15px;
       background: blueviolet;
       border-color: blueviolet;
   }
 
-dt.btn a:active {
+dl.btn a:active {
     padding-left: 15px;
     background: blueviolet;
     border-color: blueviolet;
