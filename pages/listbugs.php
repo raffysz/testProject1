@@ -47,7 +47,7 @@
     $r = mysqli_query( $db, $q);
     if (mysqli_num_rows($r) >0)
     {
-        echo '<table><tr><th>Bug ID</th>
+        echo '<table align="centre"><tr><th>Bug ID</th>
         <th>Title</th><th>Post Date</th><th>Fix Date</th><th>Status</th></tr>';
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
         {
