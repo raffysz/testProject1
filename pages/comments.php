@@ -95,12 +95,12 @@
 
     <form action="comments.php" method="POST">
         <p>
-            Bug ID: <input type="text" name="bugid"
+            Bug ID: <input type="text" name="bugid" required="required"
                        value="<?php if (isset($_POST['bugid']))
                            echo $_POST['bugid'];?>">
         </p> <p>
             Comment:
-            <br><textarea name="comment" required="required" rows="15" cols="50"></textarea></p>
+            <br><textarea name="comment" rows="15" cols="50"></textarea></p>
         <p><input type="submit" value="Submit"></p>
     </form>
 
