@@ -92,7 +92,7 @@
                 }
                 echo '</table>';
             } else {
-                echo '<p>Incorrect or nonexistent bug ID.</p>';
+                echo '<p id="errmsg">Incorrect or non-existent bug ID.</p>';
             }
         }
         else
