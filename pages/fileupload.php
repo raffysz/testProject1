@@ -37,12 +37,13 @@
         require ('../db_connect/login_tools.php');
         load();
     }
-
+    
+    require ('../db_connect/connection.php');
+    
     $q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r)!=1)
         {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
-    }
 
     if (empty($errors) && isset($_FILES['upload'])){
         $errors= array();
