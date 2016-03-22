@@ -38,9 +38,21 @@
         load();
     }
 
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
+			</ul></nav>	
+		</div>';
+
     if ($_SERVER['REQUEST_METHOD']=='POST') {
     
-    require ('../db_connect/connection.php');
+        require ('../db_connect/connection.php');
 
         if (empty ($_POST['bugid']))
         {$errors[] = 'Enter a bug ID.';}
@@ -48,12 +60,12 @@
         {$bugid = mysqli_real_escape_string($db,
             trim($_POST['bugid']));}
     
-    $q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
+        $q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r)!=1)
         {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
 
-    if (empty($errors) && isset($_FILES['upload'])){
+        if (empty($errors) && isset($_FILES['upload'])){
         $errors= array();
         $file_name = $_FILES['upload']['name'];
         $file_size =$_FILES['upload']['size'];
@@ -77,11 +89,11 @@
         }else{
             print_r($errors);
         }
-    }
+        }
 
 
         if (empty($errors)) {
-            $q = "INSERT INTO attachments (url, userID, bugID) VALUES ('../uploads/$file_name','{$_SESSION['userID']}','$bugid')";
+            $q = "INSERT INTO attachments (url, userID, bugID) VALUES ('http://raffaele-rgu-demo.azurewebsites.net/uploads/$file_name','{$_SESSION['userID']}','$bugid')";
             $r = mysqli_query($db, $q);
             if ($r) {
                 echo '<h1>File submitted successfully!</h1>
