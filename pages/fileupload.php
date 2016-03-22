@@ -83,6 +83,14 @@
             $errors[]='File size must not exceed 2 MB';
         }
 
+            if (empty($errors)) {
+                $q = "SELECT url FROM attachments WHERE url='http://raffaele-rgu-demo.azurewebsites.net/uploads/$file_name'";
+                $r = mysqli_query($db, $q);
+                if (mysqli_num_rows($r) != 0) {
+                    $errors[] = 'Filename already in use, please select another.';
+                }
+            }
+
         if(empty($errors)==true){
             move_uploaded_file($file_tmp,"../uploads/".$file_name);
             echo "Upload successful!";
