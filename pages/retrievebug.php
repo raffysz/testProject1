@@ -80,7 +80,8 @@
                 echo '<table class="centre"><tr><th>Bug ID</th>
         <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<tr>
+                    echo '<p>Bug info</p>
+            <tr>
             <td>' . $row['bugID'] . '</td>
             <td>' . $row['title'] . '</td>
             <td>' . $row['description'] . '</td>
@@ -111,7 +112,8 @@
                 echo '<table class="centre"><tr><th>Comment ID</th>
         <th>Comment</th><th>postDate</th><th>userID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<tr>
+                    echo '<p>Bug comments</p>
+            <tr>
             <td>' . $row['commentID'] . '</td>
             <td>' . $row['description'] . '</td>
             <td>' . $row['postDate'] . '</td>
