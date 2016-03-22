@@ -127,6 +127,29 @@
             <p id="errmsg">If the problem persist please contact a system administrator.</p>';
         }
 
+        if (empty($errors))
+        {
+            $q = "SELECT attachmentID, url, userID FROM attachments WHERE bugID='$bugid'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) > 0) {
+                echo '<h1>Uploaded files:</h1><table class="centre"><tr><th>attachmentID</th>
+        <th>url</th><th>userID</th></tr>';
+                while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+                    echo '<tr>
+            <td>' . $row['attachmentID'] . '</td>
+            <td>' . $row['url'] . '</td>
+            <td>' . $row['userID'] . '</td>
+            </tr>';
+                }
+                echo '</table>';
+            }
+        }
+        else
+        {
+            echo '<p id="errmsg">An error has occurred, please try again.</p>
+            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
+        }
+
     }
 
     ?>
