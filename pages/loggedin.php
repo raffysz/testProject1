@@ -14,18 +14,6 @@
 
 <body>
 
-<div id="sidebar">
-    <nav id="navigation"><ul>
-            <dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
-            <dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
-            <dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
-            <dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
-            <dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
-            <dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
-            <dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
-        </ul></nav>
-</div>
-
 <!--START OF HEADER -->
 <header class="header">
 
@@ -49,7 +37,19 @@
         require ('../db_connect/login_tools.php');
         load();
     }
-    
+
+    echo '<div id="sidebar">
+			<nav id="navigation"><ul>
+				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
+				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
+				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
+				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
+				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
+				<dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
+			</ul></nav>	
+		</div>';
+
     echo "<h1>Welcome</h1>
     <p id='logged'>You are now logged in as {$_SESSION['username']}, {$_SESSION['email']}</p>
     <p id='logged'>Please select an option from the side menu.</p>";
