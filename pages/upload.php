@@ -107,6 +107,7 @@
         </p>
                     <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
                     <input name="userfile" type="file" id="userfile">
+                    <input name="upload" type="submit" class="box" id="upload" value=" Upload ">
                
     </form>
 
