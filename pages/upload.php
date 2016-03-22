@@ -84,7 +84,7 @@
                 }
 
                 $query = "INSERT INTO attachments (name, size, type, content, userID, bugID) 
-        VALUES ('$fileName', '$fileSize', '$fileType', '$content','{$_SESSION['userID']}')";
+        VALUES ('$fileName', '$fileSize', '$fileType', '$content','{$_SESSION['userID']}','$bugid')";
 
                 mysql_query($query) or die('Error, query failed');
 
