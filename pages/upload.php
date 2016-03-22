@@ -36,45 +36,42 @@
         load();
     }
 
-    if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
-    {
-        $fileName = $_FILES['userfile']['name'];
-        $tmpName  = $_FILES['userfile']['tmp_name'];
-        $fileSize = $_FILES['userfile']['size'];
-        $fileType = $_FILES['userfile']['type'];
-
-        $fp      = fopen($tmpName, 'r');
-        $content = fread($fp, filesize($tmpName));
-        $content = addslashes($content);
-        fclose($fp);
-
-        if(!get_magic_quotes_gpc())
-        {
-            $fileName = addslashes($fileName);
-        }
-        include '../db_connect/connection.php';
-
-
-        $query = "INSERT INTO upload (name, size, type, content ) ".
-            "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
-
-        mysql_query($query) or die('Error, query failed');
-        include 'library/closedb.php';
-
-        echo "<br>File $fileName uploaded<br>";
+    if(isset($_FILES['image'])){
+        $file_name = $_FILES['image']['name'];
+        $file_size =$_FILES['image']['size'];
+        $file_tmp =$_FILES['image']['tmp_name'];
+        $file_type=$_FILES['image']['type'];
+        $name=$_POST['name'];
+        $codes=$_POST['code'];
     }
-?>
 
-    <form method="post" enctype="multipart/form-data">
-        <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-            <tr>
-                <td width="246">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                    <input name="userfile" type="file" id="userfile">
-                </td>
-                <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-            </tr>
-        </table>
+    $extensions = array("txt");
+
+    $file_ext=explode('.',$_FILES['image']['name'])	;
+    $file_ext=end($file_ext);
+
+    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+
+    if(in_array($file_ext,$extensions ) === false){
+        $errors[]="extension not allowed";
+    }
+
+    if($file_size > 2097152){
+        $errors[]='File size must be less tham 2 MB';
+    }
+
+    if(empty($errors)==true){
+        move_uploaded_file($file_tmp,"uploads".$file_name);
+        echo "Success";
+    }else{
+        print_r($errors[]);
+    }
+
+    ?>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" />
+        <input type="submit"/>
     </form>
 
 </main>
