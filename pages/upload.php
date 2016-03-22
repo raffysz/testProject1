@@ -50,57 +50,45 @@
 
     $page_title = 'Upload Tool';
 
-    if ($_SERVER['REQUEST_METHOD']=='POST')
-    {
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
         require('../db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['bugid']))
-        {$errors[] = 'Enter a bug ID.';}
-        else
-        {$bugid = mysqli_real_escape_string($db,
-            trim($_POST['bugid']));}
-
-        if (empty($errors))
-        {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r)!=1)
-            {$errors[] = 'Invalid bug ID, to upload a file please input a valid associated bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
+        if (empty ($_POST['bugid'])) {
+            $errors[] = 'Enter a bug ID.';
+        } else {
+            $bugid = mysqli_real_escape_string($db,
+                trim($_POST['bugid']));
         }
 
         if (empty($errors)) {
-            if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
-                $filename = $_FILES['userfile']['name'];
-                $tmpname = $_FILES['userfile']['tmp_name'];
-                $filesize = $_FILES['userfile']['size'];
-                $filetype = $_FILES['userfile']['type'];
+            $q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
+            $r = mysqli_query($db, $q);
+            if (mysqli_num_rows($r) != 1) {
+                $errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';
+            }
 
-                $fp = fopen($tmpname, 'r');
-                $content = fread($fp, filesize($tmpname));
+            if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
+                $fileName = $_FILES['userfile']['name'];
+                $tmpName = $_FILES['userfile']['tmp_name'];
+                $fileSize = $_FILES['userfile']['size'];
+                $fileType = $_FILES['userfile']['type'];
+
+                $fp = fopen($tmpName, 'r');
+                $content = fread($fp, filesize($tmpName));
                 $content = addslashes($content);
                 fclose($fp);
 
                 if (!get_magic_quotes_gpc()) {
-                    $filename = addslashes($filename);
+                    $fileName = addslashes($fileName);
                 }
 
-                $q = "INSERT INTO attachments (name, type, size, content, userID, bugID) VALUES ('$filename','$filesize','$filetype','$content','{$_SESSION['userID']}','$bugid')";
-                mysqli_query($q);
-                if ($r) {
-                    echo "<h1>Successful!</h1>
-        <p>The file $filename was uploaded successfully and can now be view by selecting the bug ID here:</p>";
-                    echo '<p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
-                }
-                mysqli_close($db);
-                exit();
-            } else {
-                echo '<h1 id="errmsg">Error!</h1>
-                <p id="errmsg">The following error(S) occurred:<br>';
-                foreach ($errors as $msg) {
-                    echo " - $msg<br>";
-                }
-                echo 'Please try again.</p>';
-                mysqli_close($db);
+                $query = "INSERT INTO attachments (name, size, type, content, userID, bugID) 
+        VALUES ('$fileName', '$fileSize', '$fileType', '$content','{$_SESSION['userID']}')";
+
+                mysql_query($query) or die('Error, query failed');
+
+                echo "<br>File $fileName uploaded<br>";
             }
         }
     }
@@ -111,16 +99,15 @@
     <p>Please check the correct bug ID before uploading a file here:</p>
     <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <p>
             Bug ID: <input type="text" name="bugid" required="required"
                            value="<?php if (isset($_POST['bugid']))
                                echo $_POST['bugid'];?>">
-        </p> <p>
-            File to be uploaded (max 16Mb):
-            <br><input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-            <input name="userfile" type="file" id="userfile">
-            <input type="submit" name="upload" value="Upload"></p>
+        </p>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                    <input name="userfile" type="file" id="userfile">
+               
     </form>
 
 </main>
