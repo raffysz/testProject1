@@ -132,8 +132,8 @@ td {
 
 #navigation {
     float: left;
-    height: 100%;
-    width: auto;
+    top: 100%;
+    bottom: 100%;
     width: 210px;
     margin: 4% 0;
     left: 0px;
