@@ -48,7 +48,7 @@
 			</ul></nav>	
 		</div>';
 
-    $page_title = 'Registration Form';
+    $page_title = 'Upload Tool';
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
@@ -99,7 +99,7 @@
     <p>Please check the correct bug ID before uploading a file here:</p>
     <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
-    <form action="comments.php" method="POST" enctype="multipart/form-data">
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
         <p>
             Bug ID: <input type="text" name="bugid" required="required"
                            value="<?php if (isset($_POST['bugid']))
@@ -108,7 +108,7 @@
             File to be uploaded (max 16Mb):
             <br><input type="hidden" name="MAX_FILE_SIZE" value="2000000">
             <input name="userfile" type="file" id="userfile"></p>
-        <p><input type="submit" value="Submit"></p>
+        <p><input type="submit" name="upload" value="Upload"></p>
     </form>
 
 </main>
