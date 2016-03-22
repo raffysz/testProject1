@@ -99,13 +99,13 @@
     <p>Please check the correct bug ID before uploading a file here:</p>
     <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
-    <form action="comments.php" method="POST">
+    <form action="comments.php" method="POST" enctype="multipart/form-data">
         <p>
             Bug ID: <input type="text" name="bugid" required="required"
                            value="<?php if (isset($_POST['bugid']))
                                echo $_POST['bugid'];?>">
         </p> <p>
-            File to be uploaded:
+            File to be uploaded (max 16Mb):
             <br><input type="hidden" name="MAX_FILE_SIZE" value="2000000">
             <input name="userfile" type="file" id="userfile"></p>
         <p><input type="submit" value="Submit"></p>
