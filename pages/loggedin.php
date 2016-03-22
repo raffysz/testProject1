@@ -54,6 +54,7 @@
     <p id='logged'>You are now logged in as {$_SESSION['username']}, {$_SESSION['email']}</p>
     <p id='logged'>Please select an option from the side menu.</p>";
 
+    
     ?>
 
 </main>
