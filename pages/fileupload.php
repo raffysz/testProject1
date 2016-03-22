@@ -27,7 +27,31 @@
 <main>
 
     <?php
-    if(isset($_FILES['upload'])){
+
+    $page_title = 'File Upload!';
+
+    session_start();
+
+    if (!isset($_SESSION['username']))
+    {
+        require ('../db_connect/login_tools.php');
+        load();
+    }
+
+    if (empty ($_POST['bugid']))
+    {$errors[] = 'Enter a bug ID.';}
+    else
+    {$bugid = mysqli_real_escape_string($db,
+        trim($_POST['bugid']));}
+
+    if (empty($errors))
+    {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
+        $r = mysqli_query($db, $q);
+        if (mysqli_num_rows($r)!=1)
+        {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
+    }
+
+    if (empty($errors) && isset($_FILES['upload'])){
         $errors= array();
         $file_name = $_FILES['upload']['name'];
         $file_size =$_FILES['upload']['size'];
@@ -47,18 +71,50 @@
 
         if(empty($errors)==true){
             move_uploaded_file($file_tmp,"../uploads/".$file_name);
-            echo "Success";
+            echo "Upload successful!";
         }else{
             print_r($errors);
         }
     }
+
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
+        if (empty($errors)) {
+            $q = "INSERT INTO attachments (url, userID, bugID) VALUES ('../uploads/$file_name','{$_SESSION['userID']}','$bugid')";
+            $r = mysqli_query($db, $q);
+            if ($r) {
+                echo '<h1>File submitted successfully!</h1>
+        <p>Your comment is been submitted successfully and can now be view by selecting the bug ID here:</p>
+        <p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
+            }
+            mysqli_close($db);
+            exit();
+        } else {
+            echo '<h1 id="errmsg">Error!</h1>
+                <p id="errmsg">The following error(S) occurred:<br>';
+            foreach ($errors as $msg) {
+                echo " - $msg<br>";
+            }
+            echo 'Please try again.</p>';
+            mysqli_close($db);
+        }
+    }
+
     ?>
-    
-    
+
+    <h1>Comment form</h1>
+    <p>Please check the correct bug ID before uploading a file here:</p>
+    <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
     <form action="" method="POST" enctype="multipart/form-data">
+
+        <p>
+            Bug ID: <input type="text" name="bugid" required="required"
+                           value="<?php if (isset($_POST['bugid']))
+                               echo $_POST['bugid'];?>">
+        </p><p>Please select a file to upload:</p>
         <input type="file" name="upload" />
         <input type="submit"/>
+        <br><p>Only accept .txt files with a maximum size of 2Mb</p>
     </form>
 
     
