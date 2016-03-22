@@ -108,9 +108,7 @@
     <form action="" method="POST" enctype="multipart/form-data">
 
         <p>
-            Bug ID: <input type="text" name="bugid" required="required"
-                           value="<?php if (isset($_POST['bugid']))
-                               echo $_POST['bugid'];?>">
+            Bug ID: <input type="text" name="bugid" required="required">
         </p><p>Please select a file to upload:</p>
         <input type="file" name="upload" />
         <input type="submit"/>
