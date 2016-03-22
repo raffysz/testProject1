@@ -65,20 +65,36 @@
         {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=1)
-            {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
+            {$errors[] = 'Invalid bug ID, to upload a file please input a valid associated bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
 
-        if (empty($errors) && !empty($_POST['comment']))
+        if (empty($errors))
         {
-            $q = "INSERT INTO comments (description, postDate, userID, bugID) VALUES ('{$_POST['comment']}',NOW(),'{$_SESSION['userID']}','$bugid')";
-            $r = mysqli_query ($db, $q);
+            if (isset($_POST['upload'])&& $_FILES['userfile']['size']>0)
+            {
+                $filename = $_FILES['userfile']['name'];
+                $tmpname = $_FILES['userfile']['tmp_name'];
+                $filesize = $_FILES['userfile']['size'];
+                $filetype = $_FILES['userfile']['type'];
+
+                $fp = fopen($tmpname, 'r');
+                $content = fread($fp, filesize($tmpname));
+                $content = addslashes($content);
+                fclose($fp);
+
+                if (!get_magic_quotes_gpc()) {
+                    $filename = addslashes($filename);
+                }
+
+            $q = "INSERT INTO attachments (name, type, size, content, userID, bugID) VALUES ('$filename','$filesize','$filetype','$content','{$_SESSION['userID']}','$bugid')";
+            mysqli_query ($q);
             if ($r)
-            {echo '<h1>Form submitted successfully!</h1>
-        <p>Your comment is been submitted successfully and can now be view by selecting the bug ID here:</p>
-        <p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
+            {echo "<h1>Successful!</h1>
+        <p>The file $filename was uploaded successfully and can now be view by selecting the bug ID here:</p>";
+        echo '<p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
             }
             mysqli_close($db);
-            exit();
+            exit();}
         }
         else
         {
