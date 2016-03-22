@@ -44,7 +44,7 @@
     echo '
     <h1>Goodbye!</h1>
     <p>You are now logged out.</p>
-    <p><a href="../pages/login.php">Login</a></p>'
+    <p><a href="../index.html">Home</a>   <a href="login.php">Login</a></p>
 
     ?>
 
