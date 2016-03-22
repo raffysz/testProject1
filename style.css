@@ -132,7 +132,7 @@ td {
 
 #navigation {
     float: left;
-    height: auto;
+    height: 100%;
     width: auto;
     width: 210px;
     margin: 4% 0;
