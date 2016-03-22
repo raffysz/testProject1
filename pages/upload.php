@@ -57,7 +57,7 @@
     Result is "uploads/filename.extension" */
     $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
 
-    $target_path = "../pages/uploads/";
+    $target_path = "uploads/";
 
     $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
 
