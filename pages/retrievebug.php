@@ -129,7 +129,7 @@
 
         if (empty($errors))
         {
-            $q = "SELECT attachmentID, url, userID FROM attachments WHERE bugID='$bugid'";
+            $q = "SELECT attachmentID, url, url, userID FROM attachments WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
                 echo '<h1>Uploaded files:</h1><table class="centre"><tr><th>attachmentID</th>
@@ -137,7 +137,7 @@
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
             <td>' . $row['attachmentID'] . '</td>
-            <td><a>' . $row['url'] . '<a></td>
+            <td><a href="' . $row['url'] . '">' . $row['url'] . '<a></td>
             <td>' . $row['userID'] . '</td>
             </tr>';
                 }
