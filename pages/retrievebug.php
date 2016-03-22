@@ -77,11 +77,10 @@
             $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<table class="centre"><tr><th>Bug ID</th>
+                echo '<h1>Bug info:</h1><table class="centre"><tr><th>Bug ID</th>
         <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<p>Bug info</p>
-            <tr>
+                    echo '<tr>
             <td>' . $row['bugID'] . '</td>
             <td>' . $row['title'] . '</td>
             <td>' . $row['description'] . '</td>
@@ -109,11 +108,10 @@
             $q = "SELECT commentID, description, postDate, userID FROM comments WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<table class="centre"><tr><th>Comment ID</th>
+                echo '<h1>Comments:</h1><table class="centre"><tr><th>Comment ID</th>
         <th>Comment</th><th>postDate</th><th>userID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<p>Bug comments</p>
-            <tr>
+                    echo '<tr>
             <td>' . $row['commentID'] . '</td>
             <td>' . $row['description'] . '</td>
             <td>' . $row['postDate'] . '</td>
