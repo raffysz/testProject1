@@ -41,6 +41,12 @@
     if ($_SERVER['REQUEST_METHOD']=='POST') {
     
     require ('../db_connect/connection.php');
+
+        if (empty ($_POST['bugid']))
+        {$errors[] = 'Enter a bug ID.';}
+        else
+        {$bugid = mysqli_real_escape_string($db,
+            trim($_POST['bugid']));}
     
     $q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
         $r = mysqli_query($db, $q);
