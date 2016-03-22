@@ -36,18 +36,6 @@
         load();
     }
 
-    echo '<div id="sidebar">
-			<nav id="navigation"><ul>
-				<dl class="btn"><a href="../pages/loggedin.php" title="Home">Home</a></dl>
-				<dl class="btn"><a href="../pages/submitbug.php" title="New Bug">Submit new bug</a></dl>
-				<dl class="btn"><a href="../pages/listbugs.php" title="List All">List all bugs</a></dl>
-				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
-				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
-				<dl class="btn"><a href="../pages/upload.php" title="Upload">Upload a file</a></dl>
-				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
-			</ul></nav>	
-		</div>';
-
     if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
     {
         $fileName = $_FILES['userfile']['name'];
@@ -65,7 +53,7 @@
             $fileName = addslashes($fileName);
         }
         include '../db_connect/connection.php';
-        
+
 
         $query = "INSERT INTO upload (name, size, type, content ) ".
             "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
