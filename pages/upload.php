@@ -68,10 +68,8 @@
             {$errors[] = 'Invalid bug ID, to upload a file please input a valid associated bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
 
-        if (empty($errors))
-        {
-            if (isset($_POST['upload'])&& $_FILES['userfile']['size']>0)
-            {
+        if (empty($errors)) {
+            if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
                 $filename = $_FILES['userfile']['name'];
                 $tmpname = $_FILES['userfile']['tmp_name'];
                 $filesize = $_FILES['userfile']['size'];
@@ -86,26 +84,24 @@
                     $filename = addslashes($filename);
                 }
 
-            $q = "INSERT INTO attachments (name, type, size, content, userID, bugID) VALUES ('$filename','$filesize','$filetype','$content','{$_SESSION['userID']}','$bugid')";
-            mysqli_query ($q);
-            if ($r)
-            {echo "<h1>Successful!</h1>
+                $q = "INSERT INTO attachments (name, type, size, content, userID, bugID) VALUES ('$filename','$filesize','$filetype','$content','{$_SESSION['userID']}','$bugid')";
+                mysqli_query($q);
+                if ($r) {
+                    echo "<h1>Successful!</h1>
         <p>The file $filename was uploaded successfully and can now be view by selecting the bug ID here:</p>";
-        echo '<p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
-            }
-            mysqli_close($db);
-            exit();}
-        }
-        else
-        {
-            echo '<h1 id="errmsg">Error!</h1>
+                    echo '<p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
+                }
+                mysqli_close($db);
+                exit();
+            } else {
+                echo '<h1 id="errmsg">Error!</h1>
                 <p id="errmsg">The following error(S) occurred:<br>';
-            foreach ($errors as $msg)
-            {
-                echo " - $msg<br>";
+                foreach ($errors as $msg) {
+                    echo " - $msg<br>";
+                }
+                echo 'Please try again.</p>';
+                mysqli_close($db);
             }
-            echo 'Please try again.</p>';
-            mysqli_close ($db);
         }
     }
 
