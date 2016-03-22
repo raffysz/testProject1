@@ -28,8 +28,6 @@
 
     <?php
 
-    $page_title = 'Bug List';
-
     session_start();
 
     if (!isset($_SESSION['username']))
@@ -50,86 +48,67 @@
 			</ul></nav>	
 		</div>';
 
-    echo '<h1>Bug Details</h1>
-    <p>Here youcan retrieve all information about a specific bug.</p>
-    <p>If you don\'t know the bug ID please consult: <a href=\'../pages/listbugs.php\'>List Of Reported Bugs</a></p>
-
-    <form action="../pages/retrievebug.php" method="POST">
-        <p>
-            Bug ID:   <input type="text" name="bug">
-        </p> <p>
-            <input type="submit" value="Submit Form"> </p>
-    </form>';
+    $page_title = 'Registration Form';
 
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         require('../db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['bug']))
+        if (empty ($_POST['bugid']))
         {$errors[] = 'Enter a bug ID.';}
         else
         {$bugid = mysqli_real_escape_string($db,
-            trim($_POST['bug']));}
+            trim($_POST['bugid']));}
 
         if (empty($errors))
-        {
-            $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
+        {$q = "SELECT bugID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r) > 0) {
-                echo '<table class="centre"><tr><th>Bug ID</th>
-        <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
-                while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<tr>
-            <td>' . $row['bugID'] . '</td>
-            <td>' . $row['title'] . '</td>
-            <td>' . $row['description'] . '</td>
-            <td>' . $row['postDate'] . '</td>
-            <td>' . $row['fixDate'] . '</td>
-            <td>' . $row['fixed'] . '</td>
-            <td>' . $row['userID'] . '</td>
-            </tr>';
-                }
-                echo '</table>';
-            } else {
-                echo '<p id="errmsg">Incorrect or non-existent bug ID.</p>';
+            if (mysqli_num_rows($r)!=1)
+            {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
+        }
+
+        if (empty($errors) && !empty($_POST['comment']))
+        {
+            $q = "INSERT INTO comments (description, postDate, userID, bugID) VALUES ('{$_POST['comment']}',NOW(),'{$_SESSION['userID']}','$bugid')";
+            $r = mysqli_query ($db, $q);
+            if ($r)
+            {echo '<h1>Form submitted successfully!</h1>
+        <p>Your comment is been submitted successfully and can now be view by selecting the bug ID here:</p>
+        <p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
             }
+            mysqli_close($db);
+            exit();
         }
         else
         {
-            echo '<p id="errmsg">An error has occurred, please try again.</p>
-            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
-        }
-
-        echo '<br>';
-
-        if (empty($errors))
-        {
-            $q = "SELECT commentID, description, postDate, userID FROM comments WHERE bugID='$bugid'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r) > 0) {
-                echo '<table class="centre"><tr><th>Comment ID</th>
-        <th>Comment</th><th>postDate</th><th>userID</th></tr>';
-                while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-                    echo '<tr>
-            <td>' . $row['commentID'] . '</td>
-            <td>' . $row['description'] . '</td>
-            <td>' . $row['postDate'] . '</td>
-            <td>' . $row['userID'] . '</td>
-            </tr>';
-                }
-                echo '</table>';
+            echo '<h1 id="errmsg">Error!</h1>
+                <p id="errmsg">The following error(S) occurred:<br>';
+            foreach ($errors as $msg)
+            {
+                echo " - $msg<br>";
             }
+            echo 'Please try again.</p>';
+            mysqli_close ($db);
         }
-        else
-        {
-            echo '<p id="errmsg">An error has occurred, please try again.</p>
-            <p id="errmsg">If the problem persist please contact a system administrator.</p>';
-        }
-
     }
 
     ?>
+
+    <h1>Comment form</h1>
+    <p>Please check the correct bug ID before leaving a comment here:</p>
+    <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
+
+    <form action="comments.php" method="POST">
+        <p>
+            Bug ID: <input type="text" name="bugid" required="required"
+                           value="<?php if (isset($_POST['bugid']))
+                               echo $_POST['bugid'];?>">
+        </p> <p>
+            Comment:
+            <br><textarea name="comment" required="required" rows="15" cols="50"></textarea></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
 
 </main>
 <!--END OF MAIN -->
@@ -149,6 +128,7 @@
     <nav>
 
         <p>
+            <a href ="../index.html">Home</a> |
             <a href ="#">About</a> |
             <a href ="#">Useful Links</a> |
             <a href ="#">Copyright ©2016</a>
@@ -159,5 +139,5 @@
 <!--END OF FOOTER -->
 
 </body>
-</html>
 
+</html>
