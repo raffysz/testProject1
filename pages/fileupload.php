@@ -37,6 +37,8 @@
         require ('../db_connect/login_tools.php');
         load();
     }
+
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
     
     require ('../db_connect/connection.php');
     
@@ -71,7 +73,7 @@
         }
     }
 
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
+
         if (empty($errors)) {
             $q = "INSERT INTO attachments (url, userID, bugID) VALUES ('../uploads/$file_name','{$_SESSION['userID']}','$bugid')";
             $r = mysqli_query($db, $q);
