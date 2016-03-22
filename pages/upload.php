@@ -36,35 +36,36 @@
         load();
     }
 
-    if(isset($_FILES['image'])){
+    if(isset($_FILES['image'])) {
         $file_name = $_FILES['image']['name'];
-        $file_size =$_FILES['image']['size'];
-        $file_tmp =$_FILES['image']['tmp_name'];
-        $file_type=$_FILES['image']['type'];
-        $name=$_POST['name'];
-        $codes=$_POST['code'];
-    }
+        $file_size = $_FILES['image']['size'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $file_type = $_FILES['image']['type'];
+        $name = $_POST['name'];
+        $codes = $_POST['code'];
 
-    $extensions = array("txt");
 
-    $file_ext=explode('.',$_FILES['image']['name'])	;
-    $file_ext=end($file_ext);
+        $extensions = array("txt");
 
-    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+        $file_ext = explode('.', $_FILES['image']['name']);
+        $file_ext = end($file_ext);
 
-    if(in_array($file_ext,$extensions ) === false){
-        $errors[]="extension not allowed";
-    }
+        $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
 
-    if($file_size > 2097152){
-        $errors[]='File size must be less tham 2 MB';
-    }
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "extension not allowed";
+        }
 
-    if(empty($errors)==true){
-        move_uploaded_file($file_tmp,"uploads".$file_name);
-        echo "Success";
-    }else{
-        print_r($errors[]);
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be less tham 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file_tmp, "uploads" . $file_name);
+            echo "Success";
+        } else {
+            print_r($errors[]);
+        }
     }
 
     ?>
