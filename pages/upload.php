@@ -50,44 +50,30 @@
 
     $page_title = 'Upload Tool';
 
-    if ($_SERVER['REQUEST_METHOD']=='POST')
-    {
-        require('../db_connect/connection.php');
-        $errors = array();
+    // Where the file is going to be placed
+    $target_path = "uploads/";
 
-        function checkupload(){
-            if (isset($_FILES['upload'])){
-                $allowed = array ('text/txt');
-                if (in_array($_FILES['upload']['type'], $allowed)) {
-                    print "Uploading files...";
-                    if (move_uploaded_file($_FILES['upload']['tmp_name'], "../uploads/{$_FILES['upload']['name']}"))
-                        echo "<p>The file has been uploaded!</p>";
-                    $fileup = "{$_FILES['upload']['name']}";
-                    print "$fileup";
-                }
-                }
-            else{
-                echo '<p>Please choose only .txt files</p>';
-        }
-        }
+    /* Add the original filename to our target path.
+    Result is "uploads/filename.extension" */
+    $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
 
+    $target_path = "uploads/";
+
+    $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
+
+    if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
+        echo "The file ".  basename( $_FILES['uploadedfile']['name']).
+            " has been uploaded";
+    } else{
+        echo "There was an error uploading the file, please try again!";
     }
 
     ?>
 
-    <h1>Upload file tool</h1>
-    <p>Please check the correct bug ID before uploading a file here:</p>
-    <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
-
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <p>
-            Bug ID: <input type="text" name="bugid" required="required"
-                           value="<?php if (isset($_POST['bugid']))
-                               echo $_POST['bugid'];?>">
-        </p> <p>
-            Please select a file to be uploaded (.txt only):
-            <br><input type="file" name="upload" size="30"></p>
-        <p><input type="submit" value="Submit"></p>
+    <form enctype="multipart/form-data" action="uploader.php" method="POST">
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+        Choose a file to upload: <input name="uploadedfile" type="file" /><br />
+        <input type="submit" value="Upload File" />
     </form>
 
 </main>
