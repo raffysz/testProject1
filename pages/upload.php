@@ -72,7 +72,7 @@
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="file" name="image" />
         <input type="submit"/>
-    </form>
+    </form>x
 
 </main>
 <!--END OF MAIN -->
