@@ -119,8 +119,8 @@
         </p> <p>
             File to be uploaded (max 16Mb):
             <br><input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-            <input name="userfile" type="file" id="userfile"></p>
-        <p><input type="submit" name="upload" value="Upload"></p>
+            <input name="userfile" type="file" id="userfile">
+            <input type="submit" name="upload" value="Upload"></p>
     </form>
 
 </main>
