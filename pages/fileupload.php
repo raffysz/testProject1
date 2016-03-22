@@ -95,7 +95,7 @@
             move_uploaded_file($file_tmp,"../uploads/".$file_name);
             echo "Upload successful!";
         }else{
-            print_r($errors);
+            $errors;
         }
         }
 
