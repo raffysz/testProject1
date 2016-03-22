@@ -137,7 +137,7 @@
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
             <td>' . $row['attachmentID'] . '</td>
-            <td>' . $row['url'] . '</td>
+            <td><a href="' . $row['attachmentID'] . '">' . $row['url'] . '<a></td>
             <td>' . $row['userID'] . '</td>
             </tr>';
                 }
