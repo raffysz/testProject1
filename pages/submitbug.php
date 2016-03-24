@@ -62,6 +62,9 @@
             if (mysqli_affected_rows($db) == 1) {
                 load('../pages/submit_executed.php');
             }
+            else{
+                load('../pages/errortitle.php');
+            }
         }
     }
 

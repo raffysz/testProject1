@@ -55,8 +55,9 @@
     {$_SESSION['username']},{$_SESSION['email']}
     </p>";
 
-    echo '<p id="errmsg">Error: The title for the bug report already exist in our database!</p>
-            <p id="errmsg">Please try again: <a href="../pages/submitbug.php">submit new bug</a></p>';
+    echo '<p id="errmsg">Error!</p>
+            <p id="errmsg">The title exceede the maximum characters or</p>
+            <p id="errmsg">there is a problem with the system, in this case please contact an administrator.</p>';
 
     ?>
 
