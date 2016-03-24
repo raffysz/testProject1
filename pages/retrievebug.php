@@ -78,9 +78,7 @@
             $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<h1>Bug info:</h1>
-                <p>To view an attachment please click on the link. To downoload the file please right click and select Save File</p>
-                <table class="centre"><tr><th>Bug ID</th>
+                echo '<h1>Bug info:</h1><table class="centre"><tr><th>Bug ID</th>
                 <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
@@ -135,8 +133,10 @@
             $q = "SELECT attachmentID, url, url, userID FROM attachments WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<h1>Uploaded files:</h1><table class="centre"><tr><th>attachmentID</th>
-        <th>url</th><th>userID</th></tr>';
+                echo '<h1>Uploaded files:</h1>
+                <p>To view an attachment please click on the link. To downoload the file please right click and select Save File</p>
+                <table class="centre"><tr><th>attachmentID</th>
+                <th>url</th><th>userID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
             <td>' . $row['attachmentID'] . '</td>
