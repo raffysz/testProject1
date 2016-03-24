@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r)!=0)
         {
-            load('../pages/submit_executed.php');
+            load('../pages/errortitle.php');
         }
     }
 
