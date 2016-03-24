@@ -70,7 +70,7 @@
         }
         var_dump($errors);
         if (empty($errors))
-        {$q = "UPDATE bugs SET fixDate=NOW(), fixed='Fixed') WHERE bugID='$bugid'";
+        {$q = "UPDATE bugs SET fixDate=NOW(), fixed='Fixed' WHERE bugID='$bugid'";
             $r = mysqli_query ($db, $q);
             if ($r)
             {echo '<h1>Form submitted successfully!</h1>
