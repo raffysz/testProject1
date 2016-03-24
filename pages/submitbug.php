@@ -58,25 +58,13 @@
         require('../db_connect/connection.php');
         $errors = array();
 
-        if (empty ($_POST['title']))
-        {$errors[] = 'Enter a bug title.';}
-        else
-        {($_POST['title']);}
 
-        if (empty($errors))
-        {$q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
-            $r = mysqli_query($db, $q);
-            if (mysqli_num_rows($r)!=0)
-            {$errors[] = 'Title already in use, please use another';}
-        }
-
-        if (empty($errors) && !empty($_POST['description']))
+        if (!empty($_POST['title']) && !empty($_POST['description']))
         {
             $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('{$_POST['title']}', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
             $r = mysqli_query ($db, $q);
-            if ($r)
-            {
-                load ('../pages/submit_executed.php');
+            if (mysqli_affected_rows($db)==1){
+                load ('../pages/submit_executed.php')
             }
             mysqli_close($db);
             exit();
