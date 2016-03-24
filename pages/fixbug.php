@@ -68,7 +68,7 @@
             if (mysqli_num_rows($r)!=1)
             {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
-        var_dump($errors);
+        
         if (empty($errors))
         {$q = "UPDATE bugs SET fixDate=NOW(), fixed='Reported fixed by user ID {$_SESSION['userID']} waiting confirmation' WHERE bugID='$bugid'";
             $r = mysqli_query ($db, $q);
