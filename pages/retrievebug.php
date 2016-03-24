@@ -46,6 +46,7 @@
 				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
 				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
 				<dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/fixbug.php" title="Report Fix">Report a Fix</a></dl>
 				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
 			</ul></nav>	
 		</div>';
@@ -77,8 +78,10 @@
             $q = "SELECT bugID, title, description, postDate, fixDate, fixed, userID FROM bugs WHERE bugID='$bugid'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r) > 0) {
-                echo '<h1>Bug info:</h1><table class="centre"><tr><th>Bug ID</th>
-        <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
+                echo '<h1>Bug info:</h1>
+                <p>To view an attachment please click on the link. To downoload the file please right click and select Save File</p>
+                <table class="centre"><tr><th>Bug ID</th>
+                <th>Title</th><th>Description</th><th>Post Date</th><th>Fix Date</th><th>Status</th><th>User ID</th></tr>';
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                     echo '<tr>
             <td>' . $row['bugID'] . '</td>

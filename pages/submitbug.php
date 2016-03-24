@@ -46,6 +46,7 @@
 				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
 				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
 				<dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/fixbug.php" title="Report Fix">Report a Fix</a></dl>
 				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
 			</ul></nav>	
 		</div>';

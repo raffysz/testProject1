@@ -46,6 +46,7 @@
 				<dl class="btn"><a href="../pages/retrievebug.php" title="Retrieve">Retrieve all bug info</a></dl>
 				<dl class="btn"><a href="../pages/comments.php" title="Post">Post a comment</a></dl>
 				<dl class="btn"><a href="../pages/fileupload.php" title="Upload">Upload a file</a></dl>
+				<dl class="btn"><a href="../pages/fixbug.php" title="Report Fix">Report a Fix</a></dl>
 				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
 			</ul></nav>	
 		</div>';
@@ -105,7 +106,7 @@
             $r = mysqli_query($db, $q);
             if ($r) {
                 echo '<h1>File submitted successfully!</h1>
-        <p>Your comment is been submitted successfully and can now be view by selecting the bug ID here:</p>
+        <p>Your file has been submitted successfully and can now be retrieved by selecting the bug ID here:</p>
         <p><a href="../pages/retrievebug.php">Retrieve a Specific Bug</a></p>';
             }
             mysqli_close($db);
@@ -123,7 +124,7 @@
 
     ?>
 
-    <h1>Comment form</h1>
+    <h1>Upload tool</h1>
     <p>Please check the correct bug ID before uploading a file here:</p>
     <p><a href="../pages/listbugs.php">View List Of Reported Bugs</a></p>
 
