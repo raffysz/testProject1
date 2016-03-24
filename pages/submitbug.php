@@ -58,27 +58,20 @@
         require('../db_connect/connection.php');
         $errors = array();
 
-
-        if (!empty($_POST['title']) && !empty($_POST['description']))
-        {
+        if (!empty($_POST['title']) && !empty($_POST['description'])) {
             $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('{$_POST['title']}', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
-            $r = mysqli_query ($db, $q);
-            if (mysqli_affected_rows($db)==1){
-                load ('../pages/submit_executed.php')
-            }
-            mysqli_close($db);
-            exit();
-        }
-        else
-        {
-            echo '<h1 id="errmsg">Error!</h1>
+            $r = mysqli_query($db, $q);
+            if (mysqli_affected_rows($db) == 1) {
+                load('../pages/submit_executed.php');
+            } else {
+                echo '<h1 id="errmsg">Error!</h1>
                 <p id="errmsg">The following error(S) occurred:<br>';
-            foreach ($errors as $msg)
-            {
-                echo " - $msg<br>";
+                foreach ($errors as $msg) {
+                    echo " - $msg<br>";
+                }
+                echo 'Please try again.</p>';
+                mysqli_close($db);
             }
-            echo 'Please try again.</p>';
-            mysqli_close ($db);
         }
     }
 
