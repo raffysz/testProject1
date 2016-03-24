@@ -50,16 +50,6 @@
 				<dl class="btn"><a href="../pages/logout.php" title="Logout">Logout</a></dl>
 			</ul></nav>	
 		</div>';
-
-    if (isset($errors)&& !empty($errors))
-    {
-        echo '<p id="errmsg">There was a problem with your login details:<br>';
-        foreach ($errors as $msg)
-        {
-            echo" - $msg<br>";
-        }
-        echo 'Please try again or <a href="../pages/newuser.php">Register New User</a></p>';
-    }
     
     ?>
 

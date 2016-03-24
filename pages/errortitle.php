@@ -55,9 +55,9 @@
     {$_SESSION['username']},{$_SESSION['email']}
     </p>";
 
-    echo '<p id="errmsg">Error!</p>
-            <p id="errmsg">The title exceede the maximum characters or</p>
-            <p id="errmsg">there is a problem with the system, in this case please contact an administrator.</p>';
+    echo '<p id="errmsg">Error! Title must be unique!</p>
+            <p id="errmsg">Title already in use, please check the bugs IDs and Titles page: <a href="../pages/listbugs.php">List of all bugs</a>
+            </p id="errmsg">Submit again: <a href="../pages/submitbug.php">Submit a new bug</a>';
 
     ?>
 

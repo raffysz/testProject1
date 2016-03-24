@@ -18,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         $q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
         $r = mysqli_query($db, $q);
         if (mysqli_num_rows($r)!=0)
-        {$errors[] = 'Title already in use, please check the bugs IDs and Titles page: <a href="../pages/listbugs.php">List of all bugs</a>';}
+        {
+            load('../pages/submit_executed.php');
+        }
     }
 
     if (!empty($_POST['title']) && !empty($_POST['description']) && empty($errors))
