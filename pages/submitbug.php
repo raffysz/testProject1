@@ -51,8 +51,6 @@
 			</ul></nav>	
 		</div>';
 
-    $page_title = 'Comments Form';
-
     if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         require('../db_connect/connection.php');
@@ -63,14 +61,6 @@
             $r = mysqli_query($db, $q);
             if (mysqli_affected_rows($db) == 1) {
                 load('../pages/submit_executed.php');
-            } else {
-                echo '<h1 id="errmsg">Error!</h1>
-                <p id="errmsg">The following error(S) occurred:<br>';
-                foreach ($errors as $msg) {
-                    echo " - $msg<br>";
-                }
-                echo 'Please try again.</p>';
-                mysqli_close($db);
             }
         }
     }
@@ -82,7 +72,7 @@
 
     <form action="submitbug.php" method="POST">
         <p>
-            Bug Title: <input type="text" name="title" required="required"
+            Bug Title (max 50 characters: <input type="text" name="title" required="required" size="50"
                            value="<?php if (isset($_POST['title']))
                                echo $_POST['title'];?>">
         </p> <p>
