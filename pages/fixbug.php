@@ -70,7 +70,7 @@
         }
         var_dump($errors);
         if (empty($errors))
-        {$q = "INSERT INTO bugs (fixDate, fixed) VALUES (NOW(), 'Reported Fixed by {$_SESSION['userID']} unconfirmed') WHERE bugID='$bugid'";
+        {$q = "UPDATE bugs SET fixDate= NOW(), fixed='Reported Fixed by {$_SESSION['userID']} unconfirmed') WHERE bugID='$bugid'";
             $r = mysqli_query ($db, $q);
             if ($r)
             {echo '<h1>Form submitted successfully!</h1>
