@@ -61,11 +61,10 @@
         if (empty ($_POST['title']))
         {$errors[] = 'Enter a bug title.';}
         else
-        {$bugid = mysqli_real_escape_string($db,
-            trim($_POST['title']));}
+        {($_POST['title']);}
 
         if (empty($errors))
-        {$q = "SELECT title FROM bugs WHERE title='$title'";
+        {$q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
             $r = mysqli_query($db, $q);
             if (mysqli_num_rows($r)!=0)
             {$errors[] = 'Title already in use, please use another';}
@@ -73,7 +72,7 @@
 
         if (empty($errors) && !empty($_POST['description']))
         {
-            $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('$title', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
+            $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('{$_POST['title']}', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
             $r = mysqli_query ($db, $q);
             if ($r)
             {
