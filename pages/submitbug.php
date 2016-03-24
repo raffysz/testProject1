@@ -51,30 +51,12 @@
 			</ul></nav>	
 		</div>';
 
-    if ($_SERVER['REQUEST_METHOD']=='POST')
-    {
-        require('../db_connect/connection.php');
-        $errors = array();
-
-        if (!empty($_POST['title']) && !empty($_POST['description'])) {
-            $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('{$_POST['title']}', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
-            $r = mysqli_query($db, $q);
-            if (mysqli_affected_rows($db) !=1) {
-                load('../pages/errortitle.php');
-            }
-            else{
-                load('../pages/submit_executed.php');
-            }
-            mysqli_close($db);
-        }
-    }
-
     ?>
 
     <h1>Report a newbub</h1>
     <p>Please complete the form below to report a new bug:</p>
 
-    <form action="submitbug.php" method="POST">
+    <form action="../db_connect/post_action.php" method="POST">
         <p>
             Bug Title (max 50 characters: <input type="text" name="title" required="required" size="50"
                            value="<?php if (isset($_POST['title']))
