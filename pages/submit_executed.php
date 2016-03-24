@@ -51,7 +51,7 @@
 
     require('../db_connect/connection.php');
 
-    require('../db_connect/post_action.php');
+    require('../db_connect/submitbug.php');
 
     $q = "SELECT bugID FROM bugs ORDER BY bugID DESC LIMIT 1";
     $r =mysqli_query($db, $q);
