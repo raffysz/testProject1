@@ -35,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
         }
         mysqli_close($db);
     }
+
+    return array (false, $errors);
 }
 
 return array (false, $errors);
