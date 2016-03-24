@@ -51,17 +51,15 @@
 			</ul></nav>	
 		</div>';
 
-    echo'<h1>Report a newbub</h1>
-    <p>Please complete the form below to report a new bug:</p>
-
-    <form action="../db_connect/post_action.php" method="POST"accept-charset="UTF-8">
-        <p>
-    Bug Title (max 50 characters: <input type="text" name="title" required="required" size="50">
-        </p> <p>
-    Description:
-            <br><textarea name="description" required="required" rows="15" cols="50"></textarea></p>
-        <p><input type="submit" value="Submit"></p>
-    </form>';
+    if (isset($errors)&& !empty($errors))
+    {
+        echo '<p id="errmsg">There was a problem with your login details:<br>';
+        foreach ($errors as $msg)
+        {
+            echo" - $msg<br>";
+        }
+        echo 'Please try again or <a href="../pages/newuser.php">Register New User</a></p>';
+    }
     
     ?>
 
@@ -76,7 +74,7 @@
             <br><textarea name="description" required="required" rows="15" cols="50"></textarea></p>
         <p><input type="submit" value="Submit"></p>
     </form>
-</main>
+
 <!--END OF MAIN -->
 
 <!--START OF FOOTER -->

@@ -10,9 +10,18 @@ $page_title = 'Submit Error';
 
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
-    require('../db_connect/connection.php');
+    
+    
+    if (!empty($_POST['title']))
+    {
+        require('../db_connect/connection.php');
+        $q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
+        $r = mysqli_query($db, $q);
+        if (mysqli_num_rows($r)!=0)
+        {$errors[] = 'Title already in use, please check the bugs IDs and Titles page: <a href="../pages/listbugs.php">List of all bugs</a>';}
+    }
 
-    if (!empty($_POST['title']) && !empty($_POST['description']))
+    if (!empty($_POST['title']) && !empty($_POST['description']) && empty($errors))
     {
         require('../db_connect/connection.php');
         $q = "INSERT INTO bugs (title, description, postDate, userID) VALUES ('{$_POST['title']}', '{$_POST['description']}', NOW(),'{$_SESSION['userID']}')";
