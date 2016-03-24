@@ -56,11 +56,9 @@
     <h1>Report a newbub</h1>
     <p>Please complete the form below to report a new bug:</p>
 
-    <form action="../db_connect/post_action.php" method="POST">
+    <form action="../db_connect/post_action.php" method="POST"accept-charset="UTF-8">
         <p>
-            Bug Title (max 50 characters: <input type="text" name="title" required="required" size="50"
-                           value="<?php if (isset($_POST['title']))
-                               echo $_POST['title'];?>">
+            Bug Title (max 50 characters: <input type="text" name="title" required="required" size="50">
         </p> <p>
             Description:
             <br><textarea name="description" required="required" rows="15" cols="50"></textarea></p>
