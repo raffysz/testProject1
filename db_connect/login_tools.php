@@ -33,7 +33,7 @@ function validate($db, $user ='', $pwd='')
     {
         $passwd = mysqli_real_escape_string($db, trim($pwd));
     }
-    var_dump($errors);
+    
     if (empty($errors))
 
 

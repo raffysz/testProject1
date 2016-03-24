@@ -68,10 +68,9 @@
             if (mysqli_num_rows($r)!=1)
             {$errors[] = 'Invalid bug ID, to leave a comment please input a valid bug ID from: <a href="../pages/listbugs.php">Bugs List</a>.';}
         }
-
+        var_dump($errors);
         if (empty($errors))
-        {
-            $q = "INSERT INTO bugs (fixDate, fixed) VALUES (NOW(), 'Reported Fixed by {$_SESSION['userID']} unconfirmed') WHERE bugID = '$bugid'";
+        {$q = "INSERT INTO bugs (fixDate, fixed) VALUES (NOW(), 'Reported Fixed by {$_SESSION['userID']} unconfirmed') WHERE bugID='$bugid'";
             $r = mysqli_query ($db, $q);
             if ($r)
             {echo '<h1>Form submitted successfully!</h1>
