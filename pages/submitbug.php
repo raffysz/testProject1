@@ -51,18 +51,40 @@
 			</ul></nav>	
 		</div>';
 
-    echo "<p id='logged'>Please complete the form below to report a new bug.
-    </p>";
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
 
-    echo '<form action="../db_connect/post_action.php" method="POST" accept-charset="utf-8">
-    <p>Title (Must be a unique title):<br>
-    <input name="title" required="required" type="text" size="50"></p>
-    <p>Description:<br>
-    <textarea name="description" required="required" rows="15" cols="50"></textarea></p>
-    <p><input type="submit" value="Submit"></p>
-    </form>';
+    if (!empty($_POST['title'])) {
+        $q = "SELECT title FROM bugs WHERE title='{$_POST['title']}'";
+        $r = mysqli_query($db, $q);
+        if (mysqli_num_rows($r) != 0) {
+            $errors[] = 'Title already exist.';
+        }
+    }
+
+        if (!empty($_POST['title']) && !empty($_POST['description'])) {
+            require('../db_connect/connection.php');
+            $q = "INSERT INTO bugs (title,description,userID,postDate) VALUES ('{$_POST['title']}','{$_POST['description']}','{$_SESSION['userID']}',NOW())";
+            $r = mysqli_query($db, $q);
+
+            if (mysqli_affected_rows($db) ==1) {
+                load('../pages/submit_executed.php');
+            }
+
+            mysqli_close($db);
+        }
+    }
     
     ?>
+
+    <H1>Please complete the form below to report a new bug.</H1>
+
+    <form action="submitbug.php" method="POST" accept-charset="utf-8">
+        <p>Title (Must be a unique title):<br>
+            <input name="title" required="required" type="text" size="50"></p>
+        <p>Description:<br>
+            <textarea name="description" required="required" rows="15" cols="50"></textarea></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
 
 </main>
 <!--END OF MAIN -->
